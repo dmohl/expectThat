@@ -8,6 +8,7 @@ pavlov.specify "expectThat Specifications", ->
         expectThat -> foo.should equal "bar"
         expectThat -> foo.should equal "bar"
         expectThat -> (foo + "test").should equal "bartest"
+        expectThat -> 1.should equal 1
     describe "When testing shouldnt equal", ->
         foo = undefined
         before ->
@@ -17,6 +18,7 @@ pavlov.specify "expectThat Specifications", ->
         expectThat -> foo.shouldnt equal "baz"
         expectThat -> foo.shouldnt equal "baz"
         expectThat -> (foo + "test").shouldnt equal "bartest2"
+        expectThat -> 1.shouldnt equal 2
     describe "When testing to and be", ->
         foo = undefined
         before ->
