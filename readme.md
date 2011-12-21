@@ -26,6 +26,14 @@ A number of assertions can be created using the `be` and/or `to` keywords:
 
     expectThat -> 1.shouldnt be equal to 1
 
+    expectThat -> ("b"+"ar" is "bar").should be true
+
+    expectThat -> ("foo" is "baz").shouldnt be true
+
+    expectThat -> ("b"+"az" is "bar").should be false
+
+    expectThat -> ("b" + "az" is "baz").shouldnt be false
+
 **Examples**
 
 The following is example of ExpectThat with Pavlov.js ( https://github.com/mmonteleone/pavlov ):

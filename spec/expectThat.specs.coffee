@@ -23,8 +23,12 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> false.shouldnt be true
             expectThat -> (foo is "bar").should be true
             expectThat -> (foo is "baz").shouldnt be true
+            expectThat -> ("b"+"ar" is "bar").should be true
+            expectThat -> ("foo" is "baz").shouldnt be true
         describe "When testing for false", ->
             expectThat -> false.should be false
             expectThat -> true.shouldnt be false
             expectThat -> (foo is "baz").should be false
             expectThat -> (foo is "bar").shouldnt be false
+            expectThat -> ("b"+"az" is "bar").should be false
+            expectThat -> ("b" + "az" is "baz").shouldnt be false

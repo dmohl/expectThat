@@ -55,8 +55,14 @@
         expectThat(function() {
           return (foo === "bar").should(be(true));
         });
-        return expectThat(function() {
+        expectThat(function() {
           return (foo === "baz").shouldnt(be(true));
+        });
+        expectThat(function() {
+          return ("b" + "ar" === "bar").should(be(true));
+        });
+        return expectThat(function() {
+          return ("foo" === "baz").shouldnt(be(true));
         });
       });
       return describe("When testing for false", function() {
@@ -69,8 +75,14 @@
         expectThat(function() {
           return (foo === "baz").should(be(false));
         });
-        return expectThat(function() {
+        expectThat(function() {
           return (foo === "bar").shouldnt(be(false));
+        });
+        expectThat(function() {
+          return ("b" + "az" === "bar").should(be(false));
+        });
+        return expectThat(function() {
+          return ("b" + "az" === "baz").shouldnt(be(false));
         });
       });
     });
