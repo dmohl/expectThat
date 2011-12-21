@@ -1,7 +1,7 @@
 ExpectThat
 =======
 
-**ExpectThat** is CoffeeScript library that helps you write expressive, self-documenting unit tests.
+**ExpectThat** is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
 ExpectThat currently supports Pavlov.js.
 
 The goals of ExpectThat are:
@@ -36,7 +36,7 @@ A number of assertions can be created using the `be` and/or `to` keywords:
 
 **Examples**
 
-The following is example of ExpectThat with Pavlov.js ( https://github.com/mmonteleone/pavlov ):
+The following is an example of ExpectThat with Pavlov.js ( https://github.com/mmonteleone/pavlov ):
 
 Pavlov:
 
