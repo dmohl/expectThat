@@ -54,13 +54,13 @@ Most assertions can be created using the `be` and/or `to` keywords:
 
 Many assertions can be created using `not`:
 
-   expectThat -> (""?).should be (not undefined)
+    expectThat -> (""?).should be (not undefined)
 
-   expectThat -> (""?).should be (not null)
+    expectThat -> (""?).should be (not null)
 
-   expectThat -> ("bah" is "bar").should be (not true)
+    expectThat -> ("bah" is "bar").should be (not true)
 
-   expectThat -> ("bar" is "bar").should be (not false)
+    expectThat -> ("bar" is "bar").should be (not false)
 
 **Examples**
 
