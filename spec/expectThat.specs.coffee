@@ -53,3 +53,6 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> (null?).shouldnt be (not null)
             expectThat -> (foo?).should be (not undefined)
             expectThat -> (foo?).should be (not null)
+        describe "When testing for throw", ->
+            expectThat -> (-> throw "test exception").should throwException
+            expectThat -> (-> throw "test exception").should throwException "test exception"

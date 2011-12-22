@@ -97,7 +97,7 @@
           return ("b" + "az" === "bar").shouldnt(be(!false));
         });
       });
-      return describe("When testing for null or undefined", function() {
+      describe("When testing for null or undefined", function() {
         var testNull, testUndefined;
         testNull = null;
         testUndefined = void 0;
@@ -142,6 +142,18 @@
         });
         return expectThat(function() {
           return (foo != null).should(be(!null));
+        });
+      });
+      return describe("When testing for throw", function() {
+        expectThat(function() {
+          return (function() {
+            throw "test exception";
+          }).should(throwException);
+        });
+        return expectThat(function() {
+          return (function() {
+            throw "test exception";
+          }).should(throwException("test exception"));
         });
       });
     });

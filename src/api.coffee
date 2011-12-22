@@ -3,6 +3,7 @@
         be: (expected) -> expected
         to: (expected) -> expected
         equal: (expected) -> expected
+        throwException: (expected) -> "assertionType": "throw", "expected": if typeof expected is "undefined" then "" else expected
         extendApi: (fn, assertProvder) ->
             @.init assertProvder if not Object.prototype.should
             description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1]
