@@ -61,11 +61,17 @@
         expectThat(function() {
           return ("b" + "ar" === "bar").should(be(true));
         });
-        return expectThat(function() {
+        expectThat(function() {
           return ("foo" === "baz").shouldnt(be(true));
         });
+        expectThat(function() {
+          return ("b" + "ar" === "bar").shouldnt(be(!true));
+        });
+        return expectThat(function() {
+          return ("foo" === "baz").should(be(!true));
+        });
       });
-      return describe("When testing for false", function() {
+      describe("When testing for false", function() {
         expectThat(function() {
           return false.should(be(false));
         });
@@ -81,8 +87,61 @@
         expectThat(function() {
           return ("b" + "az" === "bar").should(be(false));
         });
-        return expectThat(function() {
+        expectThat(function() {
           return ("b" + "az" === "baz").shouldnt(be(false));
+        });
+        expectThat(function() {
+          return (foo === "bar").should(be(!false));
+        });
+        return expectThat(function() {
+          return ("b" + "az" === "bar").shouldnt(be(!false));
+        });
+      });
+      return describe("When testing for null or undefined", function() {
+        var testNull, testUndefined;
+        testNull = null;
+        testUndefined = void 0;
+        expectThat(function() {
+          return (testNull != null).should(be(null));
+        });
+        expectThat(function() {
+          return (typeof null !== "undefined" && null !== null).should(be(null));
+        });
+        expectThat(function() {
+          return (void 0 != null).shouldnt(be(null));
+        });
+        expectThat(function() {
+          return (void 0 != null).should(be(void 0));
+        });
+        expectThat(function() {
+          return (testUndefined != null).should(be(void 0));
+        });
+        expectThat(function() {
+          return (typeof null !== "undefined" && null !== null).shouldnt(be(void 0));
+        });
+        expectThat(function() {
+          return ("" != null).shouldnt(be(null));
+        });
+        expectThat(function() {
+          return ("" != null).shouldnt(be(void 0));
+        });
+        expectThat(function() {
+          return (foo != null).shouldnt(be(void 0));
+        });
+        expectThat(function() {
+          return (foo != null).shouldnt(be(null));
+        });
+        expectThat(function() {
+          return (void 0 != null).shouldnt(be(!void 0));
+        });
+        expectThat(function() {
+          return (typeof null !== "undefined" && null !== null).shouldnt(be(!null));
+        });
+        expectThat(function() {
+          return (foo != null).should(be(!void 0));
+        });
+        return expectThat(function() {
+          return (foo != null).should(be(!null));
         });
       });
     });
