@@ -64,3 +64,11 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> 10.1.should be lessThan 10.2
             expectThat -> 10.1.shouldnt be lessThan 10
             expectThat -> 10.shouldnt be lessThan 10
+
+        # TODO:
+        #    - Add greaterThanOrEqualTo, lessThanOrEqualTo, and strictlyEqual.
+        #    - Cleanup expectThat
+        #    - Add direct support for QUnit
+        #    - Test for testing in Node.js
+        #    - Add direct support for Jasmine
+        #    - Add direct support for Mocha

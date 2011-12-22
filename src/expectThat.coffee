@@ -7,30 +7,28 @@ expectThat = ((expectThat) ->
         Object.prototype.shouldnt = (expected) ->
             _this.evaluateAssertion assertProvider, false, @, expected
         @
-    evaluateAssertion: (assertProvider, isShould, actual, expected) ->
-        expectedVal = expected
-        if typeof expected is "function" then expectedVal = expected()
-        if typeof expectedVal isnt "undefined" and expectedVal isnt null
-            assertionType = expectedVal.assertionType
-            expectedValue = expectedVal.expected
+    evaluateAssertion: (assertProvider, isShould, actual, expectedValueProvider) ->
+        expected = expectedValueProvider
+        customAssertion = expectedValueProvider
+        if typeof expectedValueProvider is "function" then customAssertion = expectedValueProvider()
+        if typeof customAssertion isnt "undefined" and customAssertion isnt null
+            assertionType = customAssertion.assertionType
+            expected = customAssertion.expected if typeof customAssertion.expected isnt "undefined"
 
         # TODO: This is a mess. Replace with an array that can be extended?
         if typeof assertionType isnt "undefined"
-            assertionToEvaluate = null
-            switch assertionType
-                when "throw"
-                    if typeof expectedVal isnt "undefined"
-                        assertProvider.assert(actual).throwsException expectedValue
-                    else
-                        assertProvider.assert(actual).throwsException()
-                when "greaterThan"
-                    assertionToEvaluate = assertProvider.assert(actual > expectedValue)
-                when "lessThan"
-                    assertionToEvaluate = assertProvider.assert(actual < expectedValue)
-            if isShould
-                if assertionToEvaluate isnt null then assertionToEvaluate.isTrue()
+            if assertionType is "throw"
+                if typeof customAssertion.expected isnt "undefined"
+                    assertProvider.assert(actual).throwsException expected
+                else
+                    assertProvider.assert(actual).throwsException()
             else
-                if assertionToEvaluate isnt null then assertionToEvaluate.isFalse()
+                # TODO: Add a nice error message if expectedVal is null/undefined or not a function
+                assertionToEvaluate = assertProvider.assert(customAssertion.expr actual, expected)
+                if isShould
+                    if assertionToEvaluate isnt null then assertionToEvaluate.isTrue()
+                else
+                    if assertionToEvaluate isnt null then assertionToEvaluate.isFalse()
         else if isShould
             assertProvider.assert(actual).isEqualTo expected
         else if not isShould

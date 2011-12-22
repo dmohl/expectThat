@@ -4,8 +4,8 @@
         to: (expected) -> expected
         equal: (expected) -> expected
         throwException: (expected) -> "assertionType": "throw", "expected": expected
-        greaterThan: (expected) -> "assertionType": "greaterThan", "expected": expected
-        lessThan: (expected) -> "assertionType": "lessThan", "expected": expected
+        greaterThan: (expected) -> "assertionType": "greaterThan", "expected": expected, "expr": (actual, expected) -> actual > expected
+        lessThan: (expected) -> "assertionType": "lessThan", "expected": expected, "expr": (actual, expected) -> actual < expected
         extendApi: (fn, assertProvder) ->
             @.init assertProvder if not Object.prototype.should
             description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1]
