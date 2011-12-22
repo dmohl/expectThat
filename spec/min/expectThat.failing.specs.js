@@ -138,7 +138,7 @@
           return ("" === void 0).should(be(true));
         });
       });
-      return describe("When testing for throw", function() {
+      describe("When testing for throw", function() {
         expectThat(function() {
           return (function() {
             return 1 / 1;
@@ -148,6 +148,34 @@
           return (function() {
             throw "test";
           }).should(throwException("test exception"));
+        });
+      });
+      describe("When testing for greater than", function() {
+        expectThat(function() {
+          return 10..should(be(greaterThan(11)));
+        });
+        expectThat(function() {
+          return 10.1.should(be(greaterThan(10.2)));
+        });
+        expectThat(function() {
+          return 11..shouldnt(be(greaterThan(10)));
+        });
+        return expectThat(function() {
+          return 11..shouldnt(be(greaterThan(10)));
+        });
+      });
+      return describe("When testing for less than", function() {
+        expectThat(function() {
+          return 11..should(be(lessThan(11)));
+        });
+        expectThat(function() {
+          return 10.3.should(be(lessThan(10.2)));
+        });
+        expectThat(function() {
+          return 9.9.shouldnt(be(lessThan(10)));
+        });
+        return expectThat(function() {
+          return 9..shouldnt(be(lessThan(10)));
         });
       });
     });

@@ -38,6 +38,16 @@ An object is true or false
 
     expectThat -> ("" is undefined).should be false
 
+A number is or is not greater than or less than another
+
+    expectThat -> 10.1.should be greaterThan 10
+
+    expectThat -> 9.shouldnt be greaterThan 10
+
+    expectThat -> 10.1.should be lessThan 10.2
+
+    expectThat -> 10.1.shouldnt be lessThan 10
+
 A function throws an exception
 
     expectThat -> (-> throw "test exception").should throwException

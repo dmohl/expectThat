@@ -54,3 +54,13 @@ pavlov.specify "expectThat Specifications", ->
         describe "When testing for throw", ->
             expectThat -> (-> 1/1).should throwException
             expectThat -> (-> throw "test").should throwException "test exception"
+        describe "When testing for greater than", ->
+            expectThat -> 10.should be greaterThan 11
+            expectThat -> (10.1).should be greaterThan 10.2
+            expectThat -> 11.shouldnt be greaterThan 10
+            expectThat -> 11.shouldnt be greaterThan 10
+        describe "When testing for less than", ->
+            expectThat -> 11.should be lessThan 11
+            expectThat -> (10.3).should be lessThan 10.2
+            expectThat -> 9.9.shouldnt be lessThan 10
+            expectThat -> 9.shouldnt be lessThan 10
