@@ -20,16 +20,6 @@ One object equals or does not equal another:
 
     expectThat -> 1.shouldnt equal 2
 
-An object is or is not undefined or null
-
-    expectThat -> (undefined?).should be undefined
-
-    expectThat -> (""?).shouldnt be undefined
-
-    expectThat -> (null?).should be null
-
-    expectThat -> (""?).shouldnt be null
-
 An object is true or false
 
     expectThat -> ("b"+"ar" is "bar").should be true
@@ -63,10 +53,6 @@ Most assertions can be created using the `be` and/or `to` keywords:
     expectThat -> ("b"+"ar" is "bar").should be true
 
     expectThat -> ("b" + "az" is "baz").shouldnt be false
-
-    expectThat -> null?.should be null
-
-    expectThat -> undefined?.shouldnt be null
 
 **Examples**
 
