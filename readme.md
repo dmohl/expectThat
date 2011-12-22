@@ -40,6 +40,22 @@ An object is true or false
 
     expectThat -> ("b" + "az" is "baz").shouldnt be false
 
+    expectThat -> (null is null).should be true
+
+    expectThat -> ("" is null).should be false
+
+    expectThat -> (undefined is undefined).should be true
+
+    expectThat -> ("" is undefined).should be false
+
+A function throws an exception
+
+    expectThat -> (-> throw "test exception").should throwException
+
+A function throws an exception with a specific exception message
+
+    expectThat -> (-> throw "test exception").should throwException "test exception"
+
 Most assertions can be created using the `be` and/or `to` keywords:
 
     expectThat -> 1.shouldnt be equal to 2
@@ -48,19 +64,9 @@ Most assertions can be created using the `be` and/or `to` keywords:
 
     expectThat -> ("b" + "az" is "baz").shouldnt be false
 
-    expectThat -> (null?).should be null
+    expectThat -> null?.should be null
 
-    expectThat -> (undefined?).shouldnt be null
-
-Many assertions can be created using `not`:
-
-    expectThat -> (""?).should be (not undefined)
-
-    expectThat -> (""?).should be (not null)
-
-    expectThat -> ("bah" is "bar").should be (not true)
-
-    expectThat -> ("bar" is "bar").should be (not false)
+    expectThat -> undefined?.shouldnt be null
 
 **Examples**
 

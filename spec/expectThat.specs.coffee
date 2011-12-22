@@ -37,22 +37,20 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> (foo is "bar").should be (not false)
             expectThat -> ("b"+"az" is "bar").shouldnt be (not false)
         describe "When testing for null or undefined", ->
-            testNull = null 
+            testNull = null
             testUndefined = undefined
-            expectThat -> (testNull?).should be null
-            expectThat -> (null?).should be null
-            expectThat -> (undefined?).shouldnt be null
-            expectThat -> (undefined?).should be undefined
-            expectThat -> (testUndefined?).should be undefined
-            expectThat -> (null?).shouldnt be undefined
-            expectThat -> (""?).shouldnt be null
-            expectThat -> (""?).shouldnt be undefined
-            expectThat -> (foo?).shouldnt be undefined
-            expectThat -> (foo?).shouldnt be null
-            expectThat -> (undefined?).shouldnt be (not undefined)
-            expectThat -> (null?).shouldnt be (not null)
-            expectThat -> (foo?).should be (not undefined)
-            expectThat -> (foo?).should be (not null)
+            expectThat -> (testNull is null).should be true
+            expectThat -> (testNull is null).shouldnt be false
+            expectThat -> (testNull isnt null).should be false
+            expectThat -> (testNull isnt null).shouldnt be true
+            expectThat -> (testUndefined is undefined).should be true
+            expectThat -> (testUndefined is undefined).shouldnt be false
+            expectThat -> (testUndefined isnt undefined).should be false
+            expectThat -> (testUndefined isnt undefined).shouldnt be true
+            expectThat -> (null is null).should be true
+            expectThat -> ("" is null).should be false
+            expectThat -> (undefined is undefined).should be true
+            expectThat -> ("" is undefined).should be false
         describe "When testing for throw", ->
             expectThat -> (-> throw "test exception").should throwException
             expectThat -> (-> throw "test exception").should throwException "test exception"
