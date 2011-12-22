@@ -18,13 +18,19 @@ One object equals or does not equal another:
 
     expectThat -> 1.should equal 1
 
-    expectThat -> 1.shouldnt equal 1
+    expectThat -> 1.shouldnt equal 2
 
-A number of assertions can be created using the `be` and/or `to` keywords:
+An object is or is not undefined or null
 
-    expectThat -> 1.should be equal to 1
+    expectThat -> (undefined?).should be undefined
 
-    expectThat -> 1.shouldnt be equal to 1
+    expectThat -> (""?).shouldnt be undefined
+
+    expectThat -> (null?).should be null
+
+    expectThat -> (""?).shouldnt be null
+
+An object is true or false
 
     expectThat -> ("b"+"ar" is "bar").should be true
 
@@ -33,6 +39,28 @@ A number of assertions can be created using the `be` and/or `to` keywords:
     expectThat -> ("b"+"az" is "bar").should be false
 
     expectThat -> ("b" + "az" is "baz").shouldnt be false
+
+Most assertions can be created using the `be` and/or `to` keywords:
+
+    expectThat -> 1.shouldnt be equal to 2
+
+    expectThat -> ("b"+"ar" is "bar").should be true
+
+    expectThat -> ("b" + "az" is "baz").shouldnt be false
+
+    expectThat -> (null?).should be null
+
+    expectThat -> (undefined?).shouldnt be null
+
+Many assertions can be created using `not`:
+
+   expectThat -> (""?).should be (not undefined)
+
+   expectThat -> (""?).should be (not null)
+
+   expectThat -> ("bah" is "bar").should be (not true)
+
+   expectThat -> ("bar" is "bar").should be (not false)
 
 **Examples**
 
