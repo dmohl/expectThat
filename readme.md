@@ -102,7 +102,7 @@ Pavlov:
             expectThat -> foo.should be equal to "bar"
             expectThat -> foo.shouldnt be equal to "bah"
 
-ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be used. Here's an example:
+ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example:
 
     ((expectThat) ->
         myCustomMatchers =
@@ -116,5 +116,7 @@ ExpectThat also supports custom matchers. Any matcher that evaluates to true/fal
 
 **Roadmap**
 
-* Add a number of additional assertions.
-* Add support for additional test frameworks.
+* Add direct support for QUnit
+* Verify and/or add support for Node
+* Add direct support for Jasmine
+* Add direct support for Mocha
