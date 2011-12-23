@@ -15,5 +15,6 @@
                        .replace(/void 0/g, "null") # replace "void 0" with the word "null"
                        .replace(/!= null/g, "") # replace "!= null" with blank
                        .replace(/typeof null !== "undefined" && null !== null/g, "undefined") # replace with the word "undefined".
-    @
+
+    expectThat.util.extend expectThat, expectThat.api
 ) expectThat or= {}

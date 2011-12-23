@@ -48,6 +48,16 @@ A number is or is not greater than or less than another
 
     expectThat -> 10.1.shouldnt be lessThan 10
 
+A number is or is not greater than or equal to or less than another or equal to
+
+    expectThat -> 10.should be greaterThanOrEqual to 10
+
+    expectThat -> 9.9.shouldnt be greaterThanOrEqual to 10
+
+    expectThat -> (10.0).should be lessThanOrEqual to 10
+
+    expectThat -> 10.1.shouldnt be lessThanOrEqual to 10
+
 A function throws an exception
 
     expectThat -> (-> throw "test exception").should throwException

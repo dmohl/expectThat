@@ -164,7 +164,7 @@
           return 11..shouldnt(be(greaterThan(10)));
         });
       });
-      return describe("When testing for less than", function() {
+      describe("When testing for less than", function() {
         expectThat(function() {
           return 11..should(be(lessThan(11)));
         });
@@ -176,6 +176,43 @@
         });
         return expectThat(function() {
           return 9..shouldnt(be(lessThan(10)));
+        });
+      });
+      describe("When testing for greater than or equal to", function() {
+        expectThat(function() {
+          return 10..should(be(greaterThanOrEqual(to(10.1))));
+        });
+        expectThat(function() {
+          return 10..should(be(greaterThanOrEqual(10.1)));
+        });
+        expectThat(function() {
+          return 8..should(be(greaterThanOrEqual(to(9))));
+        });
+        expectThat(function() {
+          return 9.9.should(be(greaterThanOrEqual(to(10))));
+        });
+        expectThat(function() {
+          return 10.1.shouldnt(be(greaterThanOrEqual(to(10))));
+        });
+        return expectThat(function() {
+          return 11..shouldnt(be(greaterThanOrEqual(to(10))));
+        });
+      });
+      return describe("When testing for less than or equal to", function() {
+        expectThat(function() {
+          return 11.1.should(be(lessThanOrEqual(to(11))));
+        });
+        expectThat(function() {
+          return 10.3.should(be(lessThanOrEqual(to(10.2))));
+        });
+        expectThat(function() {
+          return 9.9.shouldnt(be(lessThanOrEqual(to(10))));
+        });
+        expectThat(function() {
+          return 10..shouldnt(be(lessThanOrEqual(to(10))));
+        });
+        return expectThat(function() {
+          return 9..shouldnt(be(lessThanOrEqual(to(10))));
         });
       });
     });

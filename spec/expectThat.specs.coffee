@@ -64,6 +64,18 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> 10.1.should be lessThan 10.2
             expectThat -> 10.1.shouldnt be lessThan 10
             expectThat -> 10.shouldnt be lessThan 10
+        describe "When testing for greater than or equal to", ->
+            expectThat -> 10.1.should be greaterThanOrEqual to 10.1
+            expectThat -> 10.should be greaterThanOrEqual 10
+            expectThat -> 10.should be greaterThanOrEqual to 9
+            expectThat -> 9.9.shouldnt be greaterThanOrEqual to 10
+            expectThat -> 9.shouldnt be greaterThanOrEqual to 10
+        describe "When testing for less than or equal to", ->
+            expectThat -> 11.0.should be lessThanOrEqual to 11
+            expectThat -> (10.1).should be lessThanOrEqual to 10.2
+            expectThat -> 10.0.should be lessThanOrEqual to 10
+            expectThat -> 10.1.shouldnt be lessThanOrEqual to 10
+            expectThat -> 11.shouldnt be lessThanOrEqual to 10
 
         # TODO:
         #    - Add greaterThanOrEqualTo, lessThanOrEqualTo, and strictlyEqual.
