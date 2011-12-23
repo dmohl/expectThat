@@ -2,7 +2,7 @@ ExpectThat
 =======
 
 **ExpectThat** is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
-ExpectThat currently supports Pavlov.js.
+ExpectThat currently supports Pavlov.js as well as QUnit.
 
 The goals of ExpectThat are:
 
@@ -85,7 +85,8 @@ Most assertions can be created using the `be` and/or `to` keywords:
 
 **Examples**
 
-The following is an example of ExpectThat with Pavlov.js ( https://github.com/mmonteleone/pavlov ):
+The following is are examples of ExpectThat in use with Pavlov.js ( https://github.com/mmonteleone/pavlov ) and QUnit respectively.
+Note: More extensive examples can be found in the example folder ( https://github.com/dmohl/expectThat/tree/master/example ).
 
 Pavlov:
 
@@ -102,7 +103,20 @@ Pavlov:
             expectThat -> foo.should be equal to "bar"
             expectThat -> foo.shouldnt be equal to "bah"
 
-ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example:
+QUnit:
+
+    module "When testing should equal"
+
+    foo = "bar"
+
+    expectThat -> foo.should equal "bar"
+    expectThat -> foo.shouldnt equal "baz"
+    expectThat -> (foo + "test").shouldnt equal "bartest2"
+    expectThat -> foo.should be equal to "bar"
+    expectThat -> foo.shouldnt be equal to "bah"
+
+ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example of
+a custom matcher for Pavlov:
 
     ((expectThat) ->
         myCustomMatchers =
@@ -116,7 +130,6 @@ ExpectThat also supports custom matchers. Any matcher that evaluates to true/fal
 
 **Roadmap**
 
-* Add direct support for QUnit
-* Verify and/or add support for Node
+* Add support for Node
 * Add direct support for Jasmine
 * Add direct support for Mocha
