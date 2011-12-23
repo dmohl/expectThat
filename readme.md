@@ -2,11 +2,11 @@ ExpectThat
 =======
 
 **ExpectThat** is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
-ExpectThat currently supports Pavlov.js as well as QUnit.
+ExpectThat currently supports Pavlov and QUnit.
 
 The goals of ExpectThat are:
 
-* to make the code of CoffeeScript unit tests speak for itself (no need to write the same thing in a comment or unit test name).
+* to make the code of CoffeeScript unit tests speak for itself (no need to write the same thing in a comment or test name).
 * to provide human readable unit test assertions.
 * to leverage existing test frameworks, while at the same time adapting them to CoffeScript in new ways.
 
@@ -48,7 +48,7 @@ A number is or is not greater than or less than another
 
     expectThat -> 10.1.shouldnt be lessThan 10
 
-A number is or is not greater than or equal to or less than another or equal to
+A number is or is not greater than or equal to or less than or equal to another
 
     expectThat -> 10.should be greaterThanOrEqual to 10
 
@@ -85,7 +85,7 @@ Most assertions can be created using the `be` and/or `to` keywords:
 
 **Examples**
 
-The following is are examples of ExpectThat in use with Pavlov.js ( https://github.com/mmonteleone/pavlov ) and QUnit respectively.
+The following are examples of ExpectThat in use with Pavlov.js ( https://github.com/mmonteleone/pavlov ) and QUnit respectively.
 Note: More extensive examples can be found in the example folder ( https://github.com/dmohl/expectThat/tree/master/example ).
 
 Pavlov:
@@ -116,7 +116,7 @@ QUnit:
     expectThat -> foo.shouldnt be equal to "bah"
 
 ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example of
-a custom matcher for Pavlov:
+a custom matcher for Pavlov (Note: An example for QUnit is available in the examples folder https://github.com/dmohl/expectThat/tree/master/example ):
 
     ((expectThat) ->
         myCustomMatchers =
