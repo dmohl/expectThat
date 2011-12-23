@@ -1,6 +1,6 @@
-((expectThat, pavlov) ->
-    # pavlov implementation
+# Pavlov implementation
 
+((expectThat, pavlov) ->
     expectThat.api.pavlov =
         expectThat: (fn) ->
             testDescription = @.extendApi fn, pavlov.api
