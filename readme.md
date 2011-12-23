@@ -58,6 +58,15 @@ A number is or is not greater than or equal to or less than another or equal to
 
     expectThat -> 10.1.shouldnt be lessThanOrEqual to 10
 
+An object is strictly equal (i.e. is or ===) to another
+
+    testFn = ->
+    testFn2 = ->
+
+    expectThat -> testFn.should be strictlyEqual to testFn
+
+    expectThat -> testFn.shouldnt be strictlyEqual to testFn2
+
 A function throws an exception
 
     expectThat -> (-> throw "test exception").should throwException

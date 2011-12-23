@@ -20,5 +20,10 @@
             "expected": expected
             "expr": (actual, expected) -> actual <= expected
 
+        strictlyEqual: (expected) ->
+            "assertionType": "strictlyEqual"
+            "expected": expected
+            "expr": (actual, expected) -> actual is expected
+
     expectThat.util.extend expectThat, expectThat.api.extendedMatchers
 ) expectThat or= {}

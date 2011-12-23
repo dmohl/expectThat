@@ -14,7 +14,7 @@ expectThat = ((expectThat) ->
             assertionType = customAssertion.assertionType
             expected = customAssertion.expected if typeof customAssertion.expected isnt "undefined"
 
-        # TODO: This is a mess. Replace with an array that can be extended?
+        # TODO: Need to clean this up
         if typeof assertionType isnt "undefined"
             if assertionType is "throw"
                 if typeof customAssertion.expected isnt "undefined"

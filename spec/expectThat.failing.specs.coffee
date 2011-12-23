@@ -77,3 +77,10 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> 9.9.shouldnt be lessThanOrEqual to 10
             expectThat -> 10.shouldnt be lessThanOrEqual to 10
             expectThat -> 9.shouldnt be lessThanOrEqual to 10
+        describe "When testing strictly equal to", ->
+            testFn = ->
+            testFn2 = ->
+            expectThat -> 1.should be strictlyEqual to 1
+            expectThat -> testFn.shouldnt be strictlyEqual to testFn
+            expectThat -> testFn.should be strictlyEqual to testFn2
+            expectThat -> testFn2.shouldnt be strictlyEqual to testFn2

@@ -198,7 +198,7 @@
           return 11..shouldnt(be(greaterThanOrEqual(to(10))));
         });
       });
-      return describe("When testing for less than or equal to", function() {
+      describe("When testing for less than or equal to", function() {
         expectThat(function() {
           return 11.1.should(be(lessThanOrEqual(to(11))));
         });
@@ -213,6 +213,23 @@
         });
         return expectThat(function() {
           return 9..shouldnt(be(lessThanOrEqual(to(10))));
+        });
+      });
+      return describe("When testing strictly equal to", function() {
+        var testFn, testFn2;
+        testFn = function() {};
+        testFn2 = function() {};
+        expectThat(function() {
+          return 1..should(be(strictlyEqual(to(1))));
+        });
+        expectThat(function() {
+          return testFn.shouldnt(be(strictlyEqual(to(testFn))));
+        });
+        expectThat(function() {
+          return testFn.should(be(strictlyEqual(to(testFn2))));
+        });
+        return expectThat(function() {
+          return testFn2.shouldnt(be(strictlyEqual(to(testFn2))));
         });
       });
     });
