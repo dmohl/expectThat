@@ -83,6 +83,18 @@ Pavlov:
             expectThat -> foo.should be equal to "bar"
             expectThat -> foo.shouldnt be equal to "bah"
 
+ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be used. Here's an example:
+
+    ((expectThat) ->
+        myCustomMatchers =
+            atleastTwoGreaterThan: (expected) ->
+                "assertionType": "atleastTwoGreaterThan"
+                "expected": expected
+                "expr": (actual, expected) -> actual >= expected + 2
+
+        expectThat.util.extend pavlov.api, myCustomMatchers
+    ) expectThat
+
 **Roadmap**
 
 * Add a number of additional assertions.
