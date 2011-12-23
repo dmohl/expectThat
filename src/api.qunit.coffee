@@ -8,16 +8,23 @@
     expectThatApi.assertionProvider =
         assert: (@actual) -> @
         isEqualTo: (expected) ->
-            `qunit.qunitOk(this.actual == expected, "The expected value was: " + expected + " and the actual value was: " + this.actual)`
+            `qunit.qunitOk(this.actual == expected, "The expected value was: '" + expected + "' and the actual value was: '" + this.actual + "'.")`
         isNotEqualTo: (expected) ->
-            `qunit.qunitOk(this.actual != expected, "The expected value was: " + expected + " and the actual value was: " + this.actual)`
-        isTrue: -> qunit.qunitOk @actual, "The expected value was: {expected} and the actual value was: #{@actual}"
-        isFalse: -> qunit.qunitOk(not @actual, "The expected value was: {expected} and the actual value was: #{@actual}")
-        throwException: (message) ->
-            if typeof message isnt "undefined" and message isnt null
-                qunit.qunitRaises @actual, message, "test"
-            else
-                qunit.qunitRaises @actual
+            `qunit.qunitOk(this.actual != expected, "The expected value was: '" + expected + "' and the actual value was: '" + this.actual + "'.")`
+        isTrue: -> qunit.qunitOk @actual, "The expected value was: '{expected}' and the actual value was: '#{@actual}'."
+        isFalse: -> qunit.qunitOk not @actual, "The expected value was: '{expected}' and the actual value was: '#{@actual}'."
+        throwsException: (message) ->
+            try
+                @actual()
+                qunit.qunitOk false, "The function did not throw an exception"
+            catch ex
+                if typeof message isnt "undefined" and message isnt null
+                    qunit.qunitOk ex is message,
+                        """The function threw an exception, however, the error message did not match the provided
+                           expected error message. The expected error message was '#{message}' and the actual error message was
+                           '#{ex}'."""
+                else
+                    qunit.qunitOk true, "The actual error message was '#{ex}'."
 
     expectThatApi.util.extend expectThatApi.api.qunit, expectThatApi.assertionProvider
 
