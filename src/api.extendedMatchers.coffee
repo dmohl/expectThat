@@ -1,5 +1,5 @@
-((expectThat) ->
-    expectThat.api.extendedMatchers =
+((expectThatApi) ->
+    expectThatApi.api.extendedMatchers =
         greaterThan: (expected) ->
             "assertionType": "greaterThan"
             "expected": expected
@@ -25,5 +25,5 @@
             "expected": expected
             "expr": (actual, expected) -> actual is expected
 
-    expectThat.util.extend expectThat, expectThat.api.extendedMatchers
-) expectThat or= {}
+    expectThatApi.util.extend expectThatApi, expectThatApi.api.extendedMatchers
+) expectThatApi or= {}

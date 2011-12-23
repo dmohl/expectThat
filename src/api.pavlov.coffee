@@ -1,11 +1,11 @@
 # Pavlov implementation
 
-((expectThat, pavlov) ->
-    expectThat.api.pavlov =
+((expectThatApi, pavlov) ->
+    expectThatApi.api.pavlov =
         expectThat: (fn) ->
             testDescription = @.extendApi fn, pavlov.api
             pavlov.api.it testDescription, fn
 
-    expectThat.util.extend expectThat, expectThat.api.pavlov
-    expectThat.util.extend pavlov.api, expectThat
-) expectThat or= {}, window.pavlov
+    expectThatApi.util.extend expectThatApi, expectThatApi.api.pavlov
+    expectThatApi.util.extend pavlov.api, expectThatApi
+) expectThatApi or= {}, window.pavlov

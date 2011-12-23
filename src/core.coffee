@@ -1,4 +1,4 @@
-expectThat = ((expectThat) ->
+expectThatApi = ((expectThatApi) ->
     init: (assertProvider) ->
         _this = @
         Object.prototype.should = (expected) ->
@@ -51,4 +51,4 @@ expectThat = ((expectThat) ->
         assertionToEvaluate = assertProvider.assert(actual)
         @.executeAssertion assertionToEvaluate, isShould, assertionType, actual, expected, customAssertion, assertProvider
 
-) expectThat or= {}
+) expectThatApi or= {}

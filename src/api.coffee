@@ -1,11 +1,11 @@
-((expectThat) ->
-    expectThat.api =
+((expectThatApi) ->
+    expectThatApi.api =
         be: (expected) -> expected
         to: (expected) -> expected
         equal: (expected) -> expected
         throwException: (expected) -> "assertionType": "throw", "expected": expected
         extendApi: (fn, assertProvder) ->
-            @.init assertProvder if not Object.prototype.should
+            expectThatApi.init assertProvder if not Object.prototype.should
             description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1]
             description.replace(/(\^\s+|\s)+$/g,"") # remove all surrounding white space.
                        .replace(/[(\^(?)]/g, " ") # remove the "." and parenthesis.
@@ -16,5 +16,5 @@
                        .replace(/!= null/g, "") # replace "!= null" with blank
                        .replace(/typeof null !== "undefined" && null !== null/g, "undefined") # replace with the word "undefined".
 
-    expectThat.util.extend expectThat, expectThat.api
-) expectThat or= {}
+    expectThatApi.util.extend expectThatApi, expectThatApi.api
+) expectThatApi or= {}
