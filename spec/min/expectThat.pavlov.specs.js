@@ -1,24 +1,8 @@
-    pavlov.specify("expectThat Specifications", function() {
-        describe("When testing should equal", function() {
-            var foo = undefined;
-            expectThat(function() {
-                foo.should(equal("bar"));
-            });
-            expectThat(function() {
-                (foo + "test").should(equal("bartest"));
-            });
-        });
-    });
+
   pavlov.specify("expectThat Specifications", function() {
     return describe("", function() {
       var foo;
-      foo = void 0;
-      before(function() {
-        return foo = "bar";
-      });
-      after(function() {
-        return foo = "baz";
-      });
+      foo = "bar";
       describe("When testing should equal", function() {
         expectThat(function() {
           return foo.should(equal("bar"));

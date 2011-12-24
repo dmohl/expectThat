@@ -1,10 +1,6 @@
 pavlov.specify "expectThat Specifications", ->
     describe "", ->
-        foo = undefined
-        before ->
-            foo = "bar"
-        after ->
-            foo = "baz"
+        foo = "bar"
         describe "When testing should equal", ->
             expectThat -> foo.should equal "barz"
             expectThat -> (foo + "test").should equal "bartestz"

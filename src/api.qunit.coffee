@@ -4,7 +4,7 @@
     expectThatApi.api.qunit = {}
     expectThatApi.assertionProvider = {}
 
-    # We need to creater an adapter for QUnit that matches the expectThat assertion provider expectations
+    # We need to create an adapter for QUnit that matches the expectThat assertion provider expectations
     expectThatApi.assertionProvider =
         assert: (@actual) -> @
         isEqualTo: (expected) ->

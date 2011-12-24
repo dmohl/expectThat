@@ -71,7 +71,7 @@ A function throws an exception
 
     expectThat -> (-> throw "test exception").should throwException
 
-A function throws an exception with a specific exception message
+A function throws an exception with a specific exception message (Note: The exception message must match exactly.)
 
     expectThat -> (-> throw "test exception").should throwException "test exception"
 
