@@ -2,7 +2,7 @@ ExpectThat
 =======
 
 **ExpectThat** is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
-ExpectThat currently supports Pavlov and QUnit.
+ExpectThat currently supports Pavlov, QUnit, and Jasmine.
 
 The goals of ExpectThat are:
 
@@ -114,6 +114,21 @@ QUnit:
     expectThat -> (foo + "test").shouldnt equal "bartest2"
     expectThat -> foo.should be equal to "bar"
     expectThat -> foo.shouldnt be equal to "bah"
+
+Jasmine:
+
+    describe "Example Jasmine Specifications", ->
+        foo = "bar"
+        describe "When testing should equal", ->
+            expectThat -> foo.should equal "bar"
+        describe "When testing shouldnt equal", ->
+            expectThat -> foo.shouldnt equal "baz"
+        describe "When testing for true", ->
+            expectThat -> (foo is "bar").should be true
+            expectThat -> (foo is "baz").shouldnt be true
+        describe "When testing for false", ->
+            expectThat -> (foo is "baz").should be false
+            expectThat -> (foo is "bar").shouldnt be false
 
 ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example of
 a custom matcher for Pavlov (Note: An example for QUnit is available in the examples folder https://github.com/dmohl/expectThat/tree/master/example ):
