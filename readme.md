@@ -131,11 +131,11 @@ a custom matcher for Pavlov (Note: An example for QUnit is available in the exam
 **Using ExpectThat with JavaScript**
 
 While the syntax of ExpectThat is especially well suited and specifically designed for CoffeeScript, it can also be used
-in JavaScript. Simple add all the ceremony that CoffeeScript takes away. Here's a Pavlov example:
+in JavaScript. Here's a Pavlov example:
 
     pavlov.specify("expectThat Specifications", function() {
         describe("When testing should equal", function() {
-            var foo = undefined;
+            var foo = "bar";
             expectThat(function() {
                 foo.should(equal("bar"));
             });
@@ -148,14 +148,14 @@ in JavaScript. Simple add all the ceremony that CoffeeScript takes away. Here's 
 **Known Issues and/or Comments**
 
 * QUnit places all of its associated functions in the global scope. To allow seamless integration, ExpectThat for QUnit
-follows this approach as well. Because of this, the QUnit "equal" function is overwritten when the ExpectThis "equal" function.
-If for what ever reason you require access to the QUnit "equal" function, it can be called with qunitEqual. ExpectThat for
+follows this approach as well. Because of this, the QUnit "equal" function is overwritten with the ExpectThis "equal" function.
+If for whatever reason you require access to the QUnit "equal" function, it can be access via qunitEqual. ExpectThat for
 QUnit also adds "expectThat", "be", "to", "throwException", "qunitNotEqual", "qunitRaises", and "qunitOk" to the global
 scope, though these do not currently cause direct conflicts with QUnit.
 
-* While the Pavlov implementation does not pollute the global scope that way that QUnit implementation does, it requires
-a change to the currently released version of Pavlov to make the lack of global pollution possible. A pull request has been
-submitted for Pavlov. For now, the modifed version of the Pavlov library can be found in the ext folder of this project.
+* While the Pavlov implementation does not pollute the global scope the way that the QUnit implementation does, it requires
+a change to the currently released version of Pavlov to make this possible (the change has been submitted in a pull request).
+For now, the modified version of the Pavlov library can be found in the ext folder of this project.
 
 **Roadmap**
 

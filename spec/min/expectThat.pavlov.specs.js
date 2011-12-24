@@ -1,4 +1,14 @@
-
+    pavlov.specify("expectThat Specifications", function() {
+        describe("When testing should equal", function() {
+            var foo = undefined;
+            expectThat(function() {
+                foo.should(equal("bar"));
+            });
+            expectThat(function() {
+                (foo + "test").should(equal("bartest"));
+            });
+        });
+    });
   pavlov.specify("expectThat Specifications", function() {
     return describe("", function() {
       var foo;
