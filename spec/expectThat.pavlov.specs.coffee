@@ -81,9 +81,3 @@ pavlov.specify "expectThat Specifications", ->
             expectThat -> testFn2.should be strictlyEqual to testFn2
             expectThat -> "test".shouldnt be strictlyEqual to "test"
 
-        # TODO:
-        #    - Cleanup expectThat
-        #    - Add direct support for QUnit
-        #    - Verify and/or add support for Node
-        #    - Add direct support for Jasmine
-        #    - Add direct support for Mocha

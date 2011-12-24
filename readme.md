@@ -150,15 +150,18 @@ in JavaScript. Here's a Pavlov example:
 * QUnit places all of its associated functions in the global scope. To allow seamless integration, ExpectThat for QUnit
 follows this approach as well. Because of this, the QUnit "equal" function is overwritten with the ExpectThis "equal" function.
 If for whatever reason you require access to the QUnit "equal" function, it can be access via qunitEqual. ExpectThat for
-QUnit also adds "expectThat", "be", "to", "throwException", "qunitNotEqual", "qunitRaises", and "qunitOk" to the global
-scope, though these do not currently cause direct conflicts with QUnit.
+QUnit also adds "expectThat", "be", "to", "throwException", "greaterThan", "greaterThanOrEqual", "lessThan",
+"lessThanOrEqual", "strictlyEqual", "qunitNotEqual", "qunitRaises", "qunitOk", and any custom matchers that you implement
+to the global scope, though these do not currently cause direct conflicts with QUnit.
 
 * While the Pavlov implementation does not pollute the global scope the way that the QUnit implementation does, it requires
 a change to the currently released version of Pavlov to make this possible (the change has been submitted in a pull request).
 For now, the modified version of the Pavlov library can be found in the ext folder of this project.
 
+* The Jasmine implementation also pollutes the global scope by adding everything mentioned above for QUnit (expect the
+qunit specific functions). It is expected that a future version of ExpectThat will eliminate this pollution.
+
 **Roadmap**
 
-* Add direct support for Jasmine
 * Add support for Node
 * Add direct support for Mocha

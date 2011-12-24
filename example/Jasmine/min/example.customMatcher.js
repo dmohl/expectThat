@@ -1,0 +1,1 @@
+(function(a,b){var c;c={atleastTwoGreaterThan:function(a){return{assertionType:"atleastTwoGreaterThan",expected:a,expr:function(a,b){return a>=b+2}}}};return a.util.extend(b,c)})(expectThatApi,window);
