@@ -1,0 +1,218 @@
+var expectThatApi;
+expectThatApi = (function(expectThatApi) {
+  return {
+    init: function(assertProvider) {
+      var _this;
+      _this = this;
+      Object.prototype.should = function(expected) {
+        return _this.evaluateAssertion(assertProvider, true, this, expected);
+      };
+      Object.prototype.shouldnt = function(expected) {
+        return _this.evaluateAssertion(assertProvider, false, this, expected);
+      };
+      return this;
+    },
+    executeThrowAssertion: function(assertionToEvaluate, expected, customAssertion) {
+      if (typeof customAssertion.expected !== "undefined") {
+        return assertionToEvaluate.throwsException(expected);
+      } else {
+        return assertionToEvaluate.throwsException();
+      }
+    },
+    executeEqualToAssertion: function(isShould, assertionToEvaluate, expected) {
+      if (isShould) {
+        return assertionToEvaluate.isEqualTo(expected);
+      } else {
+        return assertionToEvaluate.isNotEqualTo(expected);
+      }
+    },
+    executeBooleanAssertion: function(isShould, actual, expected, customAssertion, assertProvider) {
+      var assertionToEvaluate;
+      if (typeof customAssertion.expr !== "function") {
+        throw "The provided custom assertion expression for " + customAssertion.assertionType + " is invalid.\nCustom assertion expressions should be defined as:\n(actual, expected) -> <some function using actual and expression>.";
+      }
+      assertionToEvaluate = assertProvider.assert(customAssertion.expr(actual, expected));
+      if (isShould) {
+        return assertionToEvaluate.isTrue();
+      } else {
+        return assertionToEvaluate.isFalse();
+      }
+    },
+    executeAssertion: function(assertionToEvaluate, isShould, assertionType, actual, expected, customAssertion, assertProvider) {
+      if (assertionToEvaluate === null || typeof assertionToEvaluate === "undefined") {
+        return;
+      }
+      if (typeof assertionType !== "undefined") {
+        if (assertionType === "throw") {
+          return this.executeThrowAssertion(assertionToEvaluate, expected, customAssertion);
+        } else {
+          return this.executeBooleanAssertion(isShould, actual, expected, customAssertion, assertProvider);
+        }
+      } else {
+        return this.executeEqualToAssertion(isShould, assertionToEvaluate, expected);
+      }
+    },
+    evaluateAssertion: function(assertProvider, isShould, actual, expectedValueProvider) {
+      var assertionToEvaluate, assertionType, customAssertion, expected;
+      expected = expectedValueProvider;
+      customAssertion = expectedValueProvider;
+      if (typeof expectedValueProvider === "function") {
+        customAssertion = expectedValueProvider();
+      }
+      if (typeof customAssertion !== "undefined" && customAssertion !== null) {
+        assertionType = customAssertion.assertionType;
+        if (typeof customAssertion.expected !== "undefined") {
+          expected = customAssertion.expected;
+        }
+      }
+      assertionToEvaluate = assertProvider.assert(actual);
+      return this.executeAssertion(assertionToEvaluate, isShould, assertionType, actual, expected, customAssertion, assertProvider);
+    }
+  };
+})(expectThatApi || (expectThatApi = {}));
+(function(expectThatApi) {
+  expectThatApi.util = {
+    extend: function(destintation, source) {
+      var name;
+      for (name in source) {
+        if (source.hasOwnProperty(name)) {
+          destintation[name] = source[name];
+        }
+      }
+      return destintation;
+    }
+  };
+  return this;
+})(expectThatApi || (expectThatApi = {}));
+(function(expectThatApi) {
+  expectThatApi.api = {
+    be: function(expected) {
+      return expected;
+    },
+    to: function(expected) {
+      return expected;
+    },
+    equal: function(expected) {
+      return expected;
+    },
+    throwException: function(expected) {
+      return {
+        "assertionType": "throw",
+        "expected": expected
+      };
+    },
+    extendApi: function(fn, assertProvder) {
+      var description;
+      if (!Object.prototype.should) {
+        expectThatApi.init(assertProvder);
+      }
+      description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1];
+      return description.replace(/(\^\s+|\s)+$/g, "").replace(/[(\^(?)]/g, " ").replace(/.should/g, " should").replace(/return/g, " ").replace(/shouldnt/g, "shouldn't").replace(/void 0/g, "null").replace(/!= null/g, "").replace(/typeof null !== "undefined" && null !== null/g, "undefined");
+    }
+  };
+  return expectThatApi.util.extend(expectThatApi, expectThatApi.api);
+})(expectThatApi || (expectThatApi = {}));
+(function(expectThatApi) {
+  expectThatApi.api.extendedMatchers = {
+    greaterThan: function(expected) {
+      return {
+        "assertionType": "greaterThan",
+        "expected": expected,
+        "expr": function(actual, expected) {
+          return actual > expected;
+        }
+      };
+    },
+    lessThan: function(expected) {
+      return {
+        "assertionType": "lessThan",
+        "expected": expected,
+        "expr": function(actual, expected) {
+          return actual < expected;
+        }
+      };
+    },
+    greaterThanOrEqual: function(expected) {
+      return {
+        "assertionType": "greaterThanOrEqual",
+        "expected": expected,
+        "expr": function(actual, expected) {
+          return actual >= expected;
+        }
+      };
+    },
+    lessThanOrEqual: function(expected) {
+      return {
+        "assertionType": "lessThanOrEqual",
+        "expected": expected,
+        "expr": function(actual, expected) {
+          return actual <= expected;
+        }
+      };
+    },
+    strictlyEqual: function(expected) {
+      return {
+        "assertionType": "strictlyEqual",
+        "expected": expected,
+        "expr": function(actual, expected) {
+          return actual === expected;
+        }
+      };
+    }
+  };
+  return expectThatApi.util.extend(expectThatApi, expectThatApi.api.extendedMatchers);
+})(expectThatApi || (expectThatApi = {}));
+(function(expectThatApi, qunit, exports) {
+  expectThatApi.api.qunit = {};
+  expectThatApi.assertionProvider = {};
+  expectThatApi.assertionProvider = {
+    assert: function(actual) {
+      this.actual = actual;
+      return this;
+    },
+    isEqualTo: function(expected) {
+      return qunit.qunitOk(this.actual == expected, "The expected value was: '" + expected + "' and the actual value was: '" + this.actual + "'.");
+    },
+    isNotEqualTo: function(expected) {
+      return qunit.qunitOk(this.actual != expected, "The expected value was: '" + expected + "' and the actual value was: '" + this.actual + "'.");
+    },
+    isTrue: function() {
+      return qunit.qunitOk(this.actual, "The expected value was: '{expected}' and the actual value was: '" + this.actual + "'.");
+    },
+    isFalse: function() {
+      return qunit.qunitOk(!this.actual, "The expected value was: '{expected}' and the actual value was: '" + this.actual + "'.");
+    },
+    throwsException: function(message) {
+      try {
+        this.actual();
+        return qunit.qunitOk(false, "The function did not throw an exception");
+      } catch (ex) {
+        if (typeof message !== "undefined" && message !== null) {
+          return qunit.qunitOk(ex === message, "The function threw an exception, however, the error message did not match the provided\nexpected error message. The expected error message was '" + message + "' and the actual error message was\n'" + ex + "'.");
+        } else {
+          return qunit.qunitOk(true, "The actual error message was '" + ex + "'.");
+        }
+      }
+    }
+  };
+  expectThatApi.util.extend(expectThatApi.api.qunit, expectThatApi.assertionProvider);
+  expectThatApi.api.qunit = {
+    expectThat: function(fn) {
+      var testDescription;
+      testDescription = expectThatApi.api.extendApi(fn, expectThatApi.assertionProvider);
+      return qunit.test(testDescription, fn);
+    }
+  };
+  expectThatApi.util.extend(expectThatApi, expectThatApi.api.qunit);
+  exports.expectThat = expectThatApi.expectThat;
+  exports.qunitEqual = qunit.equal;
+  exports.qunitNotEqual = qunit.notEqual;
+  exports.qunitOk = qunit.ok;
+  exports.qunitRaises = qunit.raises;
+  qunit.be = expectThatApi.api.be;
+  qunit.to = expectThatApi.api.to;
+  qunit.throwException = expectThatApi.api.throwException;
+  expectThatApi.util.extend(qunit, expectThatApi.api.extendedMatchers);
+  exports.equal = expectThatApi.api.equal;
+  return exports.expectThat;
+})(expectThatApi || (expectThatApi = {}), window, window);
