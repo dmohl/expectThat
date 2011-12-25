@@ -1,1 +1,92 @@
-describe("Example Jasmine Specifications",function(){var a;a="bar";describe("When testing should equal",function(){return expectThat(function(){return a.should(equal("bar"))})});describe("When testing shouldnt equal",function(){return expectThat(function(){return a.shouldnt(equal("baz"))})});describe("When testing for true",function(){expectThat(function(){return(a==="bar").should(be(!0))});return expectThat(function(){return(a==="baz").shouldnt(be(!0))})});describe("When testing for false",function(){expectThat(function(){return(a==="baz").should(be(!1))});return expectThat(function(){return(a==="bar").shouldnt(be(!1))})});describe("When testing to and be",function(){expectThat(function(){return a.should(be(equal(to("bar"))))});return expectThat(function(){return a.shouldnt(be(equal(to("bah"))))})});describe("When testing for null or undefined",function(){var a,b;a=null;b=void 0;expectThat(function(){return(a===null).should(be(!0))});expectThat(function(){return(a!==null).shouldnt(be(!0))});expectThat(function(){return(b===void 0).should(be(!0))});return expectThat(function(){return(b===void 0).shouldnt(be(!1))})});describe("When testing for throw",function(){expectThat(function(){return function(){throw"test exception"}.should(throwException)});return expectThat(function(){return function(){throw"test exception"}.should(throwException("test exception"))})});describe("When testing for greater than",function(){expectThat(function(){return 10..should(be(greaterThan(9)))});return expectThat(function(){return 9.1.shouldnt(be(greaterThan(10)))})});describe("When testing for less than",function(){expectThat(function(){return 10..should(be(lessThan(11)))});return expectThat(function(){return 10.1.shouldnt(be(lessThan(10)))})});return describe("When testing with the example custom matcher",function(){expectThat(function(){return 10..should(be(atleastTwoGreaterThan(8)))});return expectThat(function(){return 10..shouldnt(be(atleastTwoGreaterThan(9)))})})});
+
+  describe("Example Jasmine Specifications", function() {
+    var foo;
+    foo = "bar";
+    describe("When testing should equal", function() {
+      return expectThat(function() {
+        return foo.should(equal("bar"));
+      });
+    });
+    describe("When testing shouldnt equal", function() {
+      return expectThat(function() {
+        return foo.shouldnt(equal("baz"));
+      });
+    });
+    describe("When testing for true", function() {
+      expectThat(function() {
+        return (foo === "bar").should(be(true));
+      });
+      return expectThat(function() {
+        return (foo === "baz").shouldnt(be(true));
+      });
+    });
+    describe("When testing for false", function() {
+      expectThat(function() {
+        return (foo === "baz").should(be(false));
+      });
+      return expectThat(function() {
+        return (foo === "bar").shouldnt(be(false));
+      });
+    });
+    describe("When testing to and be", function() {
+      expectThat(function() {
+        return foo.should(be(equal(to("bar"))));
+      });
+      return expectThat(function() {
+        return foo.shouldnt(be(equal(to("bah"))));
+      });
+    });
+    describe("When testing for null or undefined", function() {
+      var testNull, testUndefined;
+      testNull = null;
+      testUndefined = void 0;
+      expectThat(function() {
+        return (testNull === null).should(be(true));
+      });
+      expectThat(function() {
+        return (testNull !== null).shouldnt(be(true));
+      });
+      expectThat(function() {
+        return (testUndefined === void 0).should(be(true));
+      });
+      return expectThat(function() {
+        return (testUndefined === void 0).shouldnt(be(false));
+      });
+    });
+    describe("When testing for throw", function() {
+      expectThat(function() {
+        return (function() {
+          throw "test exception";
+        }).should(throwException);
+      });
+      return expectThat(function() {
+        return (function() {
+          throw "test exception";
+        }).should(throwException("test exception"));
+      });
+    });
+    describe("When testing for greater than", function() {
+      expectThat(function() {
+        return 10..should(be(greaterThan(9)));
+      });
+      return expectThat(function() {
+        return 9.1.shouldnt(be(greaterThan(10)));
+      });
+    });
+    describe("When testing for less than", function() {
+      expectThat(function() {
+        return 10..should(be(lessThan(11)));
+      });
+      return expectThat(function() {
+        return 10.1.shouldnt(be(lessThan(10)));
+      });
+    });
+    return describe("When testing with the example custom matcher", function() {
+      expectThat(function() {
+        return 10..should(be(atleastTwoGreaterThan(8)));
+      });
+      return expectThat(function() {
+        return 10..shouldnt(be(atleastTwoGreaterThan(9)));
+      });
+    });
+  });

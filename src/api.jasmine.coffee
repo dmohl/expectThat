@@ -34,10 +34,10 @@
     expectThatApi.api.jasmine =
         expectThat: (fn) ->
             testDescription = expectThatApi.api.extendApi fn, expectThatApi.assertionProvider
-            window.it testDescription, fn
+            env = jasmine.getEnv()
+            env.it testDescription, fn
 
     expectThatApi.util.extend expectThatApi, expectThatApi.api.jasmine
-
     # TODO: Need to find a way to eliminate all of this global state pollution
     exports.equal = expectThatApi.api.equal
     exports.be = expectThatApi.api.be
