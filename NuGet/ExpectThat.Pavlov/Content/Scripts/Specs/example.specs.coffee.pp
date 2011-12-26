@@ -30,6 +30,3 @@ pavlov.specify "Example Specifications", ->
         describe "When testing for less than", ->
             expectThat -> 10.should be lessThan 11
             expectThat -> 10.1.shouldnt be lessThan 10
-        describe "When testing with the example custom matcher", ->
-            expectThat -> 10.should be atleastTwoGreaterThan 8
-            expectThat -> 10.shouldnt be atleastTwoGreaterThan 9
