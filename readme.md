@@ -162,21 +162,59 @@ in JavaScript. Here's a Pavlov example:
 
 **Known Issues and/or Comments**
 
-* QUnit places all of its associated functions in the global scope. To allow seamless integration, ExpectThat for QUnit
+* QUnit places all of its associated functions in the global namespace. To allow seamless integration, ExpectThat for QUnit
 follows this approach as well. Because of this, the QUnit "equal" function is overwritten with the ExpectThis "equal" function.
 If for whatever reason you require access to the QUnit "equal" function, it can be access via qunitEqual. ExpectThat for
 QUnit also adds "expectThat", "be", "to", "throwException", "greaterThan", "greaterThanOrEqual", "lessThan",
 "lessThanOrEqual", "strictlyEqual", "qunitNotEqual", "qunitRaises", "qunitOk", and any custom matchers that you implement
-to the global scope, though these do not currently cause direct conflicts with QUnit.
+to the global namespace, though these do not currently cause direct conflicts with QUnit.
 
-* While the Pavlov implementation does not pollute the global scope the way that the QUnit implementation does, it requires
+* While the Pavlov implementation does not pollute the global namespace the way that the QUnit implementation does, it requires
 a change to the currently released version of Pavlov to make this possible (the change has been submitted in a pull request).
 For now, the modified version of the Pavlov library can be found in the ext folder of this project.
 
-* The Jasmine implementation also pollutes the global scope by adding everything mentioned above for QUnit (expect the
-qunit specific functions). It is expected that a future version of ExpectThat will eliminate this pollution.
+* The Jasmine implementation also pollutes the global namespace by adding everything mentioned above for QUnit (except the
+QUnit specific functions). It is expected that a future version of ExpectThat will eliminate this pollution.
+
+**Getting Involved**
+GitHub makes collaboration very easy. To get involved with ExpectThat, simply follow the directions provided by GitHub to
+fork this repository, then implement lots of cool stuff, and finally send a pull request.
+
+There are a couple of things that you will need in order to hack on ExpectThat:
+
+* To compile, build, and validate this project use Anvil ( https://github.com/arobson/anvil.js ). The Anvil GitHub site
+includes all that you need to quickly get it up and running.
+
+* Tests are run with the test framework that the specific version of ExpectThat is targeting. Since the tests are written
+with the same library that is under test, I like to run a suite of failing tests in addition to the passing test suites
+and example test suites. This helps ensure that false positive related bugs do not sneak in.
+
+The HTML files currently used to run the in-browser test suites are below:
+
+Pavlov:
+* https://github.com/dmohl/expectThat/blob/master/spec/pavlov.failing.specs.html
+* https://github.com/dmohl/expectThat/blob/master/spec/pavlov.specs.html
+* https://github.com/dmohl/expectThat/blob/master/example/pavlov/example.specs.html
+
+QUnit:
+* https://github.com/dmohl/expectThat/blob/master/spec/qunit.failing.specs.html
+* https://github.com/dmohl/expectThat/blob/master/spec/qunit.specs.html
+* https://github.com/dmohl/expectThat/blob/master/example/QUnit/example.specs.html
+
+Jasmine:
+* https://github.com/dmohl/expectThat/blob/master/spec/jasmine.failing.specs.html
+* https://github.com/dmohl/expectThat/blob/master/spec/jasmine.specs.html
+* https://github.com/dmohl/expectThat/blob/master/example/Jasmine/example.specs.html
+
+**Release Notes**
+* 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
+* 0.1.0.0 - Initial version with support for Pavlov.
 
 **Roadmap**
 
 * Add support for Node
 * Add direct support for Mocha
+* Add ability to explicitly set the test name
+* Fix global namespace pollution in the Jasmine implementation.
+* Add support for Screw.Unit
+* Verify/support various headless test runners
