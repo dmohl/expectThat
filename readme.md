@@ -6,7 +6,7 @@ ExpectThat currently supports Pavlov, QUnit, and Jasmine.
 
 The goals of ExpectThat are:
 
-* to make the code of CoffeeScript unit tests speak for itself (no need to write the same thing in a comment or test name).
+* to make the unit test code speak for itself (no need to write the same thing in a comment or test name).
 * to provide human readable unit test assertions.
 * to leverage existing test frameworks, while at the same time adapting them to CoffeScript in new ways.
 
