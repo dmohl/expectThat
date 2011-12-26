@@ -134,7 +134,7 @@ Note: More extensive examples can be found in the example folder ( https://githu
             expectThat -> (foo is "bar").shouldnt be false
 
 ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example of
-a custom matcher for Pavlov (Note: An example for QUnit is available in the examples folder https://github.com/dmohl/expectThat/tree/master/example ):
+a custom matcher for Pavlov (Note: Examples for QUnit and Jasmine are available in the example folder of this project - https://github.com/dmohl/expectThat/tree/master/example ):
 
     ((expectThat) ->
         myCustomMatchers =
