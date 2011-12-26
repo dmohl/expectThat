@@ -87,7 +87,8 @@ Most assertions can be created using the `be` and/or `to` keywords:
 Examples
 =======
 
-The following are examples of ExpectThat in use with Pavlov.js ( https://github.com/mmonteleone/pavlov ) and QUnit respectively.
+The following are examples of ExpectThat in use with Pavlov.js (https://github.com/mmonteleone/pavlov),
+QUnit (https://github.com/jquery/qunit), and Jasmine (https://github.com/pivotal/jasmine/) respectively.
 Note: More extensive examples can be found in the example folder ( https://github.com/dmohl/expectThat/tree/master/example ).
 
 **Pavlov:**
