@@ -105,3 +105,8 @@ expectThat -> 1.should be strictlyEqual to 1
 expectThat -> testFn.shouldnt be strictlyEqual to testFn
 expectThat -> testFn.should be strictlyEqual to testFn2
 expectThat -> testFn2.shouldnt be strictlyEqual to testFn2
+
+module "When testing a provided explicit test name"
+
+expectThat "Some Test Name", -> foo.should equal "barz"
+expectThat "Some OtherTest Name", -> foo.shouldnt equal "bar"

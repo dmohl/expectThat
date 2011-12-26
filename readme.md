@@ -84,6 +84,11 @@ Most assertions can be created using the `be` and/or `to` keywords:
 
     expectThat -> ("b" + "az" is "baz").shouldnt be false
 
+While most of the time it is desirable to allow the code to dictate the test name, there may be times when you wish to
+have more control. Because of this, version 0.2.1.0+ provides a way to explicitly state the test name. Here's an example:
+
+    expectThat "Some Test Name", -> foo.should equal "bar"
+
 Examples
 =======
 
@@ -134,7 +139,7 @@ Note: More extensive examples can be found in the example folder ( https://githu
             expectThat -> (foo is "bar").shouldnt be false
 
 ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example of
-a custom matcher for Pavlov (Note: Examples for QUnit and Jasmine are available in the example folder of this project - https://github.com/dmohl/expectThat/tree/master/example ):
+a custom matcher for Pavlov. Examples for QUnit and Jasmine are available in the example folder of this project - https://github.com/dmohl/expectThat/tree/master/example ):
 
     ((expectThat) ->
         myCustomMatchers =
@@ -225,6 +230,7 @@ Jasmine:
 Release Notes
 =======
 
+* 0.2.1.0 - Added functionality to allow an optional, explicit test name to be provided.
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.
 
@@ -233,7 +239,6 @@ Roadmap
 
 * Add support for Node
 * Add direct support for Mocha
-* Add ability to optionally, explicitly set the test name
 * Fix global namespace pollution in the Jasmine implementation.
 * Add support for Screw.Unit
 * Verify/support various headless test runners

@@ -1,5 +1,5 @@
 expectThatApi = ((expectThatApi) ->
-    version: "0.2.0.2"
+    version: "0.2.1.0"
     init: (assertProvider) ->
         _this = @
         Object.prototype.should = (expected) ->

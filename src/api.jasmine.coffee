@@ -32,10 +32,13 @@
     expectThatApi.util.extend expectThatApi.api.jasmine, expectThatApi.assertionProvider
 
     expectThatApi.api.jasmine =
-        expectThat: (fn) ->
-            testDescription = expectThatApi.api.extendApi fn, expectThatApi.assertionProvider
+        expectThat: (desc, fn) ->
+            # We could have used destructing assignment here, but jsHint doesn't like it.
+            result = expectThatApi.api.extendApi fn, expectThatApi.assertionProvider, desc
+            newFn = result[0]
+            testDescription = result[1]
             env = jasmine.getEnv()
-            env.it testDescription, fn
+            env.it testDescription, newFn
 
     expectThatApi.util.extend expectThatApi, expectThatApi.api.jasmine
     # TODO: Need to find a way to eliminate all of this global state pollution

@@ -29,9 +29,12 @@
     expectThatApi.util.extend expectThatApi.api.qunit, expectThatApi.assertionProvider
 
     expectThatApi.api.qunit =
-        expectThat: (fn) ->
-            testDescription = expectThatApi.api.extendApi fn, expectThatApi.assertionProvider
-            qunit.test testDescription, fn
+        expectThat: (desc, fn) ->
+            # We could have used destructing assignment here, but jsHint doesn't like it.
+            result = expectThatApi.api.extendApi fn, expectThatApi.assertionProvider, desc
+            newFn = result[0]
+            testDescription = result[1]
+            qunit.test testDescription, newFn
 
     expectThatApi.util.extend expectThatApi, expectThatApi.api.qunit
 

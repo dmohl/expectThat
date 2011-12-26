@@ -293,4 +293,14 @@
     return testFn2.shouldnt(be(strictlyEqual(to(testFn2))));
   });
 
+  module("When testing a provided explicit test name");
+
+  expectThat("Some Test Name", function() {
+    return foo.should(equal("barz"));
+  });
+
+  expectThat("Some OtherTest Name", function() {
+    return foo.shouldnt(equal("bar"));
+  });
+
 }).call(this);

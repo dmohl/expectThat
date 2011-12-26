@@ -209,7 +209,7 @@
           return 9..shouldnt(be(lessThanOrEqual(to(10))));
         });
       });
-      return describe("When testing strictly equal to", function() {
+      describe("When testing strictly equal to", function() {
         var testFn, testFn2;
         testFn = function() {};
         testFn2 = function() {};
@@ -224,6 +224,14 @@
         });
         return expectThat(function() {
           return testFn2.shouldnt(be(strictlyEqual(to(testFn2))));
+        });
+      });
+      return describe("When testing a provided explicit test name", function() {
+        expectThat("Some Test Name", function() {
+          return foo.should(equal("barz"));
+        });
+        return expectThat("Some OtherTest Name", function() {
+          return foo.shouldnt(equal("bar"));
         });
       });
     });

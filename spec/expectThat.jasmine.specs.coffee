@@ -79,3 +79,6 @@ describe "Jasmine Passing Tests", ->
         expectThat -> testFn.shouldnt be strictlyEqual to testFn2
         expectThat -> testFn2.should be strictlyEqual to testFn2
         expectThat -> "test".shouldnt be strictlyEqual to "test"
+    describe "When testing a provided explicit test name", ->
+        expectThat "Some Test Name", -> foo.should equal "bar"
+        expectThat "Some OtherTest Name", -> foo.shouldnt equal "barz"
