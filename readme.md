@@ -171,7 +171,7 @@ Known Issues and/or Comments
 follows this approach as well. Because of this, the QUnit "equal" function is overwritten with the ExpectThis "equal" function.
 If for whatever reason you require access to the QUnit "equal" function, it can be access via qunitEqual. ExpectThat for
 QUnit also adds "expectThat", "be", "to", "throwException", "greaterThan", "greaterThanOrEqual", "lessThan",
-"lessThanOrEqual", "strictlyEqual", "qunitNotEqual", "qunitRaises", "qunitOk", and any custom matchers that you implement
+"lessThanOrEqual", "strictlyEqual", "qunitNotEqual", "qunitRaises", "qunitOk", and any custom matchers that you implement,
 to the global namespace, though these do not currently cause direct conflicts with QUnit.
 
 * While the Pavlov implementation does not pollute the global namespace the way that the QUnit implementation does, it requires
