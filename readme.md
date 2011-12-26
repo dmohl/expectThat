@@ -10,7 +10,8 @@ The goals of ExpectThat are:
 * to provide human readable unit test assertions.
 * to leverage existing test frameworks, while at the same time adapting them to CoffeScript in new ways.
 
-**Syntax**
+Syntax
+=======
 
 With ExpectThat, you can write unit tests like this:
 
@@ -83,12 +84,13 @@ Most assertions can be created using the `be` and/or `to` keywords:
 
     expectThat -> ("b" + "az" is "baz").shouldnt be false
 
-**Examples**
+Examples
+=======
 
 The following are examples of ExpectThat in use with Pavlov.js ( https://github.com/mmonteleone/pavlov ) and QUnit respectively.
 Note: More extensive examples can be found in the example folder ( https://github.com/dmohl/expectThat/tree/master/example ).
 
-Pavlov:
+**Pavlov:**
 
     pavlov.specify "expectThat Specifications", ->
         describe "When testing should equal", ->
@@ -103,7 +105,7 @@ Pavlov:
             expectThat -> foo.should be equal to "bar"
             expectThat -> foo.shouldnt be equal to "bah"
 
-QUnit:
+**QUnit:**
 
     module "When testing should equal"
 
@@ -115,7 +117,7 @@ QUnit:
     expectThat -> foo.should be equal to "bar"
     expectThat -> foo.shouldnt be equal to "bah"
 
-Jasmine:
+**Jasmine:**
 
     describe "Example Jasmine Specifications", ->
         foo = "bar"
@@ -143,7 +145,8 @@ a custom matcher for Pavlov (Note: An example for QUnit is available in the exam
         expectThat.util.extend pavlov.api, myCustomMatchers
     ) expectThat
 
-**Using ExpectThat with JavaScript**
+Using ExpectThat with JavaScript
+=======
 
 While the syntax of ExpectThat is especially well suited and specifically designed for CoffeeScript, it can also be used
 in JavaScript. Here's a Pavlov example:
@@ -160,7 +163,8 @@ in JavaScript. Here's a Pavlov example:
         });
     });
 
-**Known Issues and/or Comments**
+Known Issues and/or Comments
+=======
 
 * QUnit places all of its associated functions in the global namespace. To allow seamless integration, ExpectThat for QUnit
 follows this approach as well. Because of this, the QUnit "equal" function is overwritten with the ExpectThis "equal" function.
@@ -176,7 +180,9 @@ For now, the modified version of the Pavlov library can be found in the ext fold
 * The Jasmine implementation also pollutes the global namespace by adding everything mentioned above for QUnit (except the
 QUnit specific functions). It is expected that a future version of ExpectThat will eliminate this pollution.
 
-**Getting Involved**
+Getting Involved
+=======
+
 GitHub makes collaboration very easy. To get involved with ExpectThat, simply follow the directions provided by GitHub to
 fork this repository, then implement lots of cool stuff, and finally send a pull request.
 
@@ -206,11 +212,14 @@ Jasmine:
 * https://github.com/dmohl/expectThat/blob/master/spec/jasmine.specs.html
 * https://github.com/dmohl/expectThat/blob/master/example/Jasmine/example.specs.html
 
-**Release Notes**
+Release Notes
+=======
+
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.
 
-**Roadmap**
+Roadmap
+=======
 
 * Add support for Node
 * Add direct support for Mocha
