@@ -233,7 +233,7 @@ Roadmap
 
 * Add support for Node
 * Add direct support for Mocha
-* Add ability to explicitly set the test name
+* Add ability to optionally, explicitly set the test name
 * Fix global namespace pollution in the Jasmine implementation.
 * Add support for Screw.Unit
 * Verify/support various headless test runners
