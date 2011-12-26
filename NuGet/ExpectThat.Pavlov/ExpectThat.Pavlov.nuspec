@@ -2,7 +2,7 @@
 <package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <id>ExpectThat.Pavlov</id>
-    <version>0.2.0.2</version>
+    <version>0.2.1.0</version>
     <authors>Daniel Mohl</authors>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>ExpectThat for Pavlov is an expressive, self-documenting assertion library for CoffeScript/JavaScript.</description>

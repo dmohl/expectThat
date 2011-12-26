@@ -1,7 +1,7 @@
 var expectThatApi;
 expectThatApi = (function(expectThatApi) {
   return {
-    version: "0.2.0.0",
+    version: "0.2.1.0",
     init: function(assertProvider) {
       var _this;
       _this = this;
@@ -102,13 +102,19 @@ expectThatApi = (function(expectThatApi) {
         "expected": expected
       };
     },
-    extendApi: function(fn, assertProvder) {
+    extendApi: function(fn, assertProvder, desc) {
       var description;
       if (!Object.prototype.should) {
         expectThatApi.init(assertProvder);
       }
-      description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1];
-      return description.replace(/(\^\s+|\s)+$/g, "").replace(/[(\^(?)]/g, " ").replace(/.should/g, " should").replace(/return/g, " ").replace(/shouldnt/g, "shouldn't").replace(/void 0/g, "null").replace(/!= null/g, "").replace(/typeof null !== "undefined" && null !== null/g, "undefined");
+      if (typeof desc === "function" && typeof fn !== "function") {
+        fn = desc;
+        description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1];
+        description = description.replace(/(\^\s+|\s)+$/g, "").replace(/\);/g, "").replace(/[(\^(?)]/g, " ").replace(/.should/g, " should").replace(/return/g, " ").replace(/shouldnt/g, "shouldn't").replace(/void 0/g, "null").replace(/!= null/g, "").replace(/typeof null !== "undefined" && null !== null/g, "undefined");
+      } else {
+        description = desc;
+      }
+      return [fn, description];
     }
   };
   return expectThatApi.util.extend(expectThatApi, expectThatApi.api);
@@ -206,11 +212,13 @@ expectThatApi = (function(expectThatApi) {
   };
   expectThatApi.util.extend(expectThatApi.api.jasmine, expectThatApi.assertionProvider);
   expectThatApi.api.jasmine = {
-    expectThat: function(fn) {
-      var env, testDescription;
-      testDescription = expectThatApi.api.extendApi(fn, expectThatApi.assertionProvider);
+    expectThat: function(desc, fn) {
+      var env, newFn, result, testDescription;
+      result = expectThatApi.api.extendApi(fn, expectThatApi.assertionProvider, desc);
+      newFn = result[0];
+      testDescription = result[1];
       env = jasmine.getEnv();
-      return env.it(testDescription, fn);
+      return env.it(testDescription, newFn);
     }
   };
   expectThatApi.util.extend(expectThatApi, expectThatApi.api.jasmine);
