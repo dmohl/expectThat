@@ -200,17 +200,25 @@ The HTML files currently used to run the in-browser test suites are below:
 
 Pavlov:
 * https://github.com/dmohl/expectThat/blob/master/spec/pavlov.failing.specs.html
+
 * https://github.com/dmohl/expectThat/blob/master/spec/pavlov.specs.html
+
 * https://github.com/dmohl/expectThat/blob/master/example/pavlov/example.specs.html
 
 QUnit:
+
 * https://github.com/dmohl/expectThat/blob/master/spec/qunit.failing.specs.html
+
 * https://github.com/dmohl/expectThat/blob/master/spec/qunit.specs.html
+
 * https://github.com/dmohl/expectThat/blob/master/example/QUnit/example.specs.html
 
 Jasmine:
+
 * https://github.com/dmohl/expectThat/blob/master/spec/jasmine.failing.specs.html
+
 * https://github.com/dmohl/expectThat/blob/master/spec/jasmine.specs.html
+
 * https://github.com/dmohl/expectThat/blob/master/example/Jasmine/example.specs.html
 
 Release Notes
