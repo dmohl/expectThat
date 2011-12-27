@@ -4,7 +4,6 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script type="text/javascript" src="http://code.jquery.com/ui/1.8.15/jquery-ui.min.js"></script>  
   <script type="text/javascript" src="http://code.jquery.com/qunit/git/qunit.js"></script>
-  <script type="text/javascript" src="pavlov-custom.js"></script>
   <script type="text/javascript" src="expectThat.qunit.js"></script>
   <script type="text/javascript" src="example.specs.js"></script>
   <link rel="stylesheet" href="http://code.jquery.com/qunit/git/qunit.css" type="text/css" media="screen" />
