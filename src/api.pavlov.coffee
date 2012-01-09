@@ -11,4 +11,4 @@
 
     expectThatApi.util.extend expectThatApi, expectThatApi.api.pavlov
     expectThatApi.util.extend pavlov.api, expectThatApi
-) expectThatApi or= {}, window.pavlov
+) expectThatApi or= {}, root.pavlov

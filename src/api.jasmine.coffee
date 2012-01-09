@@ -49,4 +49,4 @@
     exports.expectThat = expectThatApi.expectThat
     expectThatApi.util.extend exports, expectThatApi.api.extendedMatchers
     @
-) expectThatApi or= {}, window
+) expectThatApi or= {}, root

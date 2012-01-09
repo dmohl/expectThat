@@ -237,8 +237,7 @@ Release Notes
 Roadmap
 =======
 
-* Add support for Node
 * Add direct support for Mocha
 * Fix global namespace pollution in the Jasmine implementation.
 * Add support for Screw.Unit
-* Verify/support various headless test runners
+* Verify/support additional headless test runners

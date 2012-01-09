@@ -1,5 +1,7 @@
+root = exports ? window
+
 expectThatApi = ((expectThatApi) ->
-    version: "0.2.1.0"
+    version: "0.2.1.1"
     init: (assertProvider) ->
         _this = @
         Object.prototype.should = (expected) ->

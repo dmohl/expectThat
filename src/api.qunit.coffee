@@ -51,4 +51,4 @@
         
     exports.equal = expectThatApi.api.equal
     exports.expectThat
-) expectThatApi or= {}, window, window
+) expectThatApi or= {}, root, root
