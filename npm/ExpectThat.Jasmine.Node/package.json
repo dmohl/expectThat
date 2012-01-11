@@ -1,0 +1,19 @@
+{
+    "name": "expectThat.jasmine-node",
+    "description": "Assertion library for CoffeeScript and Jasmine-Node",
+    "version": "0.2.1",
+    "authors": ["Daniel Mohl <@dmohl>"],
+    "keywords": ["CoffeeScript","jasmine-node","unit test"],
+    "main": "./lib/main.js",
+    "homepage": "https://github.com/dmohl/expectThat",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/dmohl/expectThat.git"
+    },
+    "directories": { "lib": "./lib" },
+    "engines" : { "node": ">=0.4.0" },
+    "dependencies": {
+        "jasmine-node": ">=1.0.17"
+    },
+    "bin" : "bin/expectThat.jasmine-node"
+}

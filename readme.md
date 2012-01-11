@@ -89,6 +89,25 @@ have more control. Because of this, version 0.2.1.0+ provides a way to explicitl
 
     expectThat "Some Test Name", -> foo.should equal "bar"
 
+How To Get It
+=======
+
+For Node.js + Jasmine-Node use NPM
+
+    npm install expectThat.jasmine-node
+
+Once installed, see the jasmine-node example and test it out by running
+
+    node runspecs.js
+
+For Visual Studio use NuGet
+
+    install-package expectThat.Pavlov
+
+    install-package expectThat.QUnit
+
+    install-package expectThat.Jasmine
+
 Examples
 =======
 
@@ -230,7 +249,7 @@ Jasmine:
 Release Notes
 =======
 
-* 0.2.2.1 - In progress... Made a few changes to support Node.js.
+* 0.2.2.1 - In progress... Made a few changes to support Node.js and Jasmine-Node. Added an NPM package and example.
 * 0.2.1.0 - Added functionality to allow an optional, explicit test name to be provided.
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.
