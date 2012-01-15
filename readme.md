@@ -96,7 +96,11 @@ For Node.js + Jasmine-Node use NPM
 
     npm install expectThat.jasmine-node
 
-Once installed, see the jasmine-node example and test it out by running
+Once installed, the following command can be run
+
+    expectThat.jasmine-node '<relative path to spec files>'
+
+or see the jasmine-node example in the expectThat solution and test it out by running the following command
 
     node runspecs.js
 
@@ -249,7 +253,7 @@ Jasmine:
 Release Notes
 =======
 
-* 0.2.2.1 - In progress... Made a few changes to support Node.js and Jasmine-Node. Added an NPM package and example.
+* 0.2.2.2 - In progress... Made a few changes to support Node.js and Jasmine-Node. Added an NPM package and example.
 * 0.2.1.0 - Added functionality to allow an optional, explicit test name to be provided.
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.

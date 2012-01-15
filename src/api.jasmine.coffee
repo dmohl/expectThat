@@ -47,6 +47,7 @@
     exports.to = expectThatApi.api.to
     exports.throwException = expectThatApi.api.throwException
     exports.expectThat = expectThatApi.expectThat
+    exports.expectThatApi = expectThatApi
     expectThatApi.util.extend exports, expectThatApi.api.extendedMatchers
     @
 ) expectThatApi or= {}, root

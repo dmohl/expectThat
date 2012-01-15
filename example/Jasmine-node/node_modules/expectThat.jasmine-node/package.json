@@ -1,7 +1,7 @@
 {
     "name": "expectThat.jasmine-node",
     "description": "Assertion library for CoffeeScript and Jasmine-Node",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "authors": ["Daniel Mohl <@dmohl>"],
     "keywords": ["CoffeeScript","jasmine-node","unit test"],
     "main": "./lib/main.js",

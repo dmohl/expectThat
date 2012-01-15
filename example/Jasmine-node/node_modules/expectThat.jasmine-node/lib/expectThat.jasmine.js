@@ -2,7 +2,7 @@ var expectThatApi, root;
 root = typeof exports !== "undefined" && exports !== null ? exports : window;
 expectThatApi = (function(expectThatApi) {
   return {
-    version: "0.2.1.1",
+    version: "0.2.2.2",
     init: function(assertProvider) {
       var _this;
       _this = this;
@@ -111,7 +111,7 @@ expectThatApi = (function(expectThatApi) {
       if (typeof desc === "function" && typeof fn !== "function") {
         fn = desc;
         description = fn.toString().match(/^[^\{]*\{((.*\s*)*)\}/m)[1];
-        description = description.replace(/(\^\s+|\s)+$/g, "").replace(/\);/g, "").replace(/[(\^(?)]/g, " ").replace(/.should/g, " should").replace(/return/g, " ").replace(/shouldnt/g, "shouldn't").replace(/void 0/g, "null").replace(/!= null/g, "").replace(/typeof null !== "undefined" && null !== null/g, "undefined");
+        description = description.replace(/\);/g, "").replace(/[(\^(?)]/g, " ").replace(/.should/g, " should").replace(/return/g, " ").replace(/shouldnt/g, "shouldn't").replace(/void 0/g, "null").replace(/!= null/g, "").replace(/typeof null !== "undefined" && null !== null/g, "undefined").replace(/^\s\s*/, '').replace(/\s\s*$/, '');
       } else {
         description = desc;
       }
@@ -228,6 +228,7 @@ expectThatApi = (function(expectThatApi) {
   exports.to = expectThatApi.api.to;
   exports.throwException = expectThatApi.api.throwException;
   exports.expectThat = expectThatApi.expectThat;
+  exports.expectThatApi = expectThatApi;
   expectThatApi.util.extend(exports, expectThatApi.api.extendedMatchers);
   return this;
 })(expectThatApi || (expectThatApi = {}), root);

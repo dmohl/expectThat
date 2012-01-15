@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-var jasmine = require('jasmine-node');
-var sys = require('util');
-var expectThat = require('../lib/expectThat.jasmine.js')
+if( !process.env.NODE_ENV ) process.env.NODE_ENV = 'test';
 
-for(var key in expectThat) {
-  global[key] = expectThat[key];
-}
+var path = require('path');
+var fs   = require('fs');
+require(path.join(__dirname,'../lib/cli.js'));
