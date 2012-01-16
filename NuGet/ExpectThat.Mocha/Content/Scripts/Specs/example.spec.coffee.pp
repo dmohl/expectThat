@@ -1,9 +1,5 @@
-require("expectThat.mocha");
-
 describe "Example Mocha Specifications", ->
     foo = "bar"
-    describe "When testing should equal", ->
-        expectThat -> foo.should equal "bar"
     describe "When testing should equal", ->
         expectThat -> foo.should equal "bar"
     describe "When testing shouldnt equal", ->

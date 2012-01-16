@@ -1,13 +1,15 @@
-(function() {
-  var expectThat;
 
-  expectThat = require('../../../lib/expectThat.jasmine.js');
+  require("expectThat.mocha");
 
   describe("Example Mocha Specifications", function() {
     var foo;
     foo = "bar";
     describe("When testing should equal", function() {
-      console.log(expectThat.expectThatApi.version);
+      return expectThat(function() {
+        return foo.should(equal("bar"));
+      });
+    });
+    describe("When testing should equal", function() {
       return expectThat(function() {
         return foo.should(equal("bar"));
       });
@@ -87,5 +89,3 @@
       });
     });
   });
-
-}).call(this);

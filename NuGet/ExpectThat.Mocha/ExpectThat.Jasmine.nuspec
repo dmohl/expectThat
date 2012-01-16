@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <id>ExpectThat.Mocha</id>
+    <version>0.2.2.2</version>
+    <authors>Daniel Mohl</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>ExpectThat for Mocha is an expressive, self-documenting assertion library for CoffeScript/JavaScript.</description>
+    <summary>ExpectThat for Mocha is an expressive, self-documenting assertion library for CoffeScript/JavaScript.</summary>
+    <language>en-US</language>
+    <projectUrl>https://github.com/dmohl/expectThat</projectUrl> 
+    <licenseUrl>https://github.com/dmohl/expectThat/blob/master/MIT.License</licenseUrl>
+	<tags>JavaScript CoffeeScript ExpectThat Mocha</tags>
+  </metadata>
+  <files>
+	<file src="Content\Scripts\Specs\*.pp" target="content\Scripts\Specs"/>
+  </files>
+</package>

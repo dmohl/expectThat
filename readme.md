@@ -2,7 +2,7 @@ ExpectThat
 =======
 
 **ExpectThat** is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
-ExpectThat currently supports Mocha (browser only for now), Pavlov, QUnit, and Jasmine.
+ExpectThat currently supports Mocha, Pavlov, QUnit, and Jasmine.
 
 The goals of ExpectThat are:
 
@@ -104,6 +104,14 @@ or see the jasmine-node example in the expectThat solution and test it out by ru
 
     node runspecs.js
 
+For Node.js + Mocha use NPM
+
+    npm install expectThat.mocha
+
+Once installed, add require('expectThat.mocha'); to the top of the spec files and run mocha as you normally would. i.e.
+
+    mocha '<spec file>' --reporter spec
+
 For Visual Studio use NuGet
 
     install-package expectThat.Pavlov
@@ -111,6 +119,8 @@ For Visual Studio use NuGet
     install-package expectThat.QUnit
 
     install-package expectThat.Jasmine
+
+    install-package expectThat.Mocha
 
 Examples
 =======
@@ -261,7 +271,7 @@ Mocha:
 Release Notes
 =======
 
-* 0.2.2.2 - In progress... Made a few changes to support Node.js, Jasmine-Node, and Mocha (browser only for now). Added an NPM package and example for Jasmine-node.
+* 0.2.2.2 - In progress... Made a few changes to support Node.js, Jasmine-Node, and Mocha. Added an NPM package and example for Jasmine-node.
 * 0.2.1.0 - Added functionality to allow an optional, explicit test name to be provided.
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.
@@ -269,7 +279,6 @@ Release Notes
 Roadmap
 =======
 
-* Add direct support for Mocha (Node)
-* Fix global namespace pollution in the Jasmine implementation.
 * Add support for Screw.Unit
+* Fix global namespace pollution in the Jasmine implementation.
 * Verify/support additional headless test runners
