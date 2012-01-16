@@ -2,7 +2,7 @@ ExpectThat
 =======
 
 **ExpectThat** is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
-ExpectThat currently supports Pavlov, QUnit, and Jasmine.
+ExpectThat currently supports Mocha (browser only for now), Pavlov, QUnit, and Jasmine.
 
 The goals of ExpectThat are:
 
@@ -116,7 +116,7 @@ Examples
 =======
 
 The following are examples of ExpectThat in use with Pavlov.js (https://github.com/mmonteleone/pavlov),
-QUnit (https://github.com/jquery/qunit), and Jasmine (https://github.com/pivotal/jasmine/) respectively.
+QUnit (https://github.com/jquery/qunit), and Jasmine (https://github.com/pivotal/jasmine/) as well as Mocha (http://visionmedia.github.com/mocha/) respectively.
 Note: More extensive examples can be found in the example folder ( https://github.com/dmohl/expectThat/tree/master/example ).
 
 **Pavlov:**
@@ -146,9 +146,9 @@ Note: More extensive examples can be found in the example folder ( https://githu
     expectThat -> foo.should be equal to "bar"
     expectThat -> foo.shouldnt be equal to "bah"
 
-**Jasmine:**
+**Jasmine and Mocha (BDD):**
 
-    describe "Example Jasmine Specifications", ->
+    describe "Example Specifications", ->
         foo = "bar"
         describe "When testing should equal", ->
             expectThat -> foo.should equal "bar"
@@ -206,7 +206,7 @@ to the global namespace, though these do not currently cause direct conflicts wi
 a change to the currently released version of Pavlov to make this possible (the change has been submitted in a pull request).
 For now, the modified version of the Pavlov library can be found in the ext folder of this project.
 
-* The Jasmine implementation also pollutes the global namespace by adding everything mentioned above for QUnit (except the
+* The Jasmine and Mocha implementations also pollute the global namespace by adding everything mentioned above for QUnit (except the
 QUnit specific functions). It is expected that a future version of ExpectThat will eliminate this pollution.
 
 Getting Involved
@@ -250,10 +250,18 @@ Jasmine:
 
 * https://github.com/dmohl/expectThat/blob/master/example/Jasmine/example.specs.html
 
+Mocha:
+
+* https://github.com/dmohl/expectThat/blob/master/spec/mocha.failing.specs.html
+
+* https://github.com/dmohl/expectThat/blob/master/spec/mocha.specs.html
+
+* https://github.com/dmohl/expectThat/blob/master/example/mocha-browser/example.specs.html
+
 Release Notes
 =======
 
-* 0.2.2.2 - In progress... Made a few changes to support Node.js and Jasmine-Node. Added an NPM package and example.
+* 0.2.2.2 - In progress... Made a few changes to support Node.js, Jasmine-Node, and Mocha (browser only for now). Added an NPM package and example for Jasmine-node.
 * 0.2.1.0 - Added functionality to allow an optional, explicit test name to be provided.
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.
@@ -261,7 +269,7 @@ Release Notes
 Roadmap
 =======
 
-* Add direct support for Mocha
+* Add direct support for Mocha (Node)
 * Fix global namespace pollution in the Jasmine implementation.
 * Add support for Screw.Unit
 * Verify/support additional headless test runners

@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+var path = require('path');
+var fs   = require('fs');
+require(path.join(__dirname,'../lib/main.js'));
