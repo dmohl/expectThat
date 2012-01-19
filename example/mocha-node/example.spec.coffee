@@ -1,4 +1,4 @@
-require("expectThat.mocha");
+require("expectThat.mocha")
 
 describe "Example Mocha Specifications", ->
     foo = "bar"
