@@ -271,7 +271,7 @@ Mocha:
 Release Notes
 =======
 
-* 0.2.2.2 - Made a few changes to support Node.js, Jasmine-Node, and Mocha. Added an NPM package and example for Jasmine-node.
+* 0.2.2.2 - Made a few changes to support Node.js, Jasmine-Node, and Mocha. Added an NPM package and example for Jasmine-node and Mocha (browser and Node).
 * 0.2.1.0 - Added functionality to allow an optional, explicit test name to be provided.
 * 0.2.0.2 - Added several new assertions and support for QUnit and Jasmine.
 * 0.1.0.0 - Initial version with support for Pavlov.
