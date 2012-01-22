@@ -9,7 +9,7 @@
     describe("no value", function() {
       describe("when calling placeholder plugin", function() {
         return expectThat("should have an input value of 'Start Typing'", function() {
-          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/Index.html", {
+          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/specs.html", {
             debug: false
           }, function(e, brwser, status) {
             input = brwser.querySelector(".search");
@@ -19,7 +19,7 @@
       });
       describe("when focusing input without user value", function() {
         return expectThat("should have an input value of ''", function() {
-          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/Index.html", {
+          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/specs.html", {
             debug: false
           }, function(e, brwser, status) {
             brwser.evaluate("document.getElementById('search').focus()");
@@ -30,7 +30,7 @@
       });
       return describe("when leaving input without user value", function() {
         return expectThat("should have an input value of 'Start Typing'", function() {
-          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/Index.html", {
+          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/specs.html", {
             debug: false
           }, function(e, brwser, status) {
             brwser.evaluate("document.getElementById('search').focus().blur()");
@@ -43,7 +43,7 @@
     return describe("a user supplied value", function() {
       describe("when calling placeholder plugin", function() {
         return expectThat("should have an input value of 'bacon'", function() {
-          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/Index.html", {
+          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/specs.html", {
             debug: false
           }, function(e, brwser, status) {
             input = brwser.querySelector(".search");
@@ -53,7 +53,7 @@
       });
       describe("when focusing input with user value", function() {
         return expectThat("should have an input value of 'bacon'", function() {
-          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/Index.html", {
+          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/specs.html", {
             debug: false
           }, function(e, brwser, status) {
             brwser.evaluate("document.getElementById('search').focus()");
@@ -64,7 +64,7 @@
       });
       return describe("when leaving input without user value", function() {
         return expectThat("should have an input value of 'bacon'", function() {
-          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/Index.html", {
+          return browser.visit("http://127.0.0.1/~dmohl/mocha-zombie/specs.html", {
             debug: false
           }, function(e, brwser, status) {
             brwser.evaluate("document.getElementById('search').focus().blur()");
