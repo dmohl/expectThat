@@ -280,6 +280,5 @@ Roadmap
 =======
 
 * Add support for Screw.Unit
-* Add support for Sinon.js
+* Add example with Sinon.js
 * Fix global namespace pollution in the Jasmine implementation.
-* Verify/support additional headless test runners
