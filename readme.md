@@ -279,6 +279,8 @@ Release Notes
 Roadmap
 =======
 
+* Fix the failing tests in the Zombie.js example
+* Add support for Vows
 * Add support for Screw.Unit
 * Add example with Sinon.js
 * Fix global namespace pollution in the Jasmine implementation.
