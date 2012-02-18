@@ -212,10 +212,6 @@ QUnit also adds "expectThat", "be", "to", "throwException", "greaterThan", "grea
 "lessThanOrEqual", "strictlyEqual", "qunitNotEqual", "qunitRaises", "qunitOk", and any custom matchers that you implement,
 to the global namespace, though these do not currently cause direct conflicts with QUnit.
 
-* While the Pavlov implementation does not pollute the global namespace the way that the QUnit implementation does, it requires
-a change to the currently released version of Pavlov to make this possible (the change has been submitted in a pull request).
-For now, the modified version of the Pavlov library can be found in the ext folder of this project.
-
 * The Jasmine and Mocha implementations also pollute the global namespace by adding everything mentioned above for QUnit (except the
 QUnit specific functions). It is expected that a future version of ExpectThat will eliminate this pollution.
 
