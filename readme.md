@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/dmohl/expectThat.png)](http://travis-ci.org/dmohl/expectThat)
 ExpectThat
 =======
 
