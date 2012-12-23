@@ -1,3 +1,5 @@
+The main ExpectThat page can be found at http://dmohl.github.com/expectThat/.
+
 ExpectThat
 =======
 
