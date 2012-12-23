@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Expectthat : A CoffeeScript Unit Testing/Assertion Library" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Expectthat</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/dmohl/expectThat">View on GitHub</a>
+
+          <h1 id="project_title">Expectthat</h1>
+          <h2 id="project_tagline">A CoffeeScript Unit Testing/Assertion Library</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/dmohl/expectThat/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/dmohl/expectThat/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>ExpectThat</h1>
+
+<p><strong>ExpectThat</strong> is a CoffeeScript library that helps you write expressive, self-documenting unit tests.
+ExpectThat currently supports Mocha, Pavlov, QUnit, and Jasmine.</p>
+
+<p>The goals of ExpectThat are:</p>
+
+<ul>
+<li>to make the unit test code speak for itself (no need to write the same thing in a comment or test name).</li>
+<li>to provide human readable unit test assertions.</li>
+<li>to leverage existing test frameworks, while at the same time adapting them to CoffeScript in new ways.</li>
+</ul><h1>How To Get It</h1>
+
+<p>For Node.js + Jasmine-Node use NPM</p>
+
+<pre><code>npm install expectThat.jasmine-node
+</code></pre>
+
+<p>Once installed, the following command can be run</p>
+
+<pre><code>expectThat.jasmine-node '&lt;relative path to spec files&gt;'
+</code></pre>
+
+<p>or see the jasmine-node example in the expectThat solution and test it out by running the following command</p>
+
+<pre><code>node runspecs.js
+</code></pre>
+
+<p>For Node.js + Mocha use NPM</p>
+
+<pre><code>npm install expectThat.mocha
+</code></pre>
+
+<p>Once installed, add require('expectThat.mocha'); to the top of the spec files and run mocha as you normally would. i.e.</p>
+
+<pre><code>mocha '&lt;spec file&gt;' --reporter spec
+</code></pre>
+
+<p>For Visual Studio use NuGet</p>
+
+<pre><code>install-package expectThat.Pavlov
+
+install-package expectThat.QUnit
+
+install-package expectThat.Jasmine
+
+install-package expectThat.Mocha
+</code></pre>
+
+<h1>Getting Started</h1>
+
+<p>With ExpectThat, you can write unit tests like this:</p>
+
+<p>One object equals or does not equal another:</p>
+
+<pre><code>expectThat -&gt; 1.should equal 1
+
+expectThat -&gt; 1.shouldnt equal 2
+</code></pre>
+
+<p>An object is true or false</p>
+
+<pre><code>expectThat -&gt; ("b"+"ar" is "bar").should be true
+
+expectThat -&gt; ("foo" is "baz").shouldnt be true
+
+expectThat -&gt; ("b"+"az" is "bar").should be false
+
+expectThat -&gt; ("b" + "az" is "baz").shouldnt be false
+
+expectThat -&gt; (null is null).should be true
+
+expectThat -&gt; ("" is null).should be false
+
+expectThat -&gt; (undefined is undefined).should be true
+
+expectThat -&gt; ("" is undefined).should be false
+</code></pre>
+
+<p>A number is or is not greater than or less than another</p>
+
+<pre><code>expectThat -&gt; 10.1.should be greaterThan 10
+
+expectThat -&gt; 9.shouldnt be greaterThan 10
+
+expectThat -&gt; 10.1.should be lessThan 10.2
+
+expectThat -&gt; 10.1.shouldnt be lessThan 10
+</code></pre>
+
+<p>A number is or is not greater than or equal to or less than or equal to another</p>
+
+<pre><code>expectThat -&gt; 10.should be greaterThanOrEqual to 10
+
+expectThat -&gt; 9.9.shouldnt be greaterThanOrEqual to 10
+
+expectThat -&gt; (10.0).should be lessThanOrEqual to 10
+
+expectThat -&gt; 10.1.shouldnt be lessThanOrEqual to 10
+</code></pre>
+
+<p>An object is strictly equal (i.e. is or ===) to another</p>
+
+<pre><code>testFn = -&gt;
+testFn2 = -&gt;
+
+expectThat -&gt; testFn.should be strictlyEqual to testFn
+
+expectThat -&gt; testFn.shouldnt be strictlyEqual to testFn2
+</code></pre>
+
+<p>A function throws an exception</p>
+
+<pre><code>expectThat -&gt; (-&gt; throw "test exception").should throwException
+</code></pre>
+
+<p>A function throws an exception with a specific exception message (Note: The exception message must match exactly.)</p>
+
+<pre><code>expectThat -&gt; (-&gt; throw "test exception").should throwException "test exception"
+</code></pre>
+
+<p>Most assertions can be created using the <code>be</code> and/or <code>to</code> keywords:</p>
+
+<pre><code>expectThat -&gt; 1.shouldnt be equal to 2
+
+expectThat -&gt; ("b"+"ar" is "bar").should be true
+
+expectThat -&gt; ("b" + "az" is "baz").shouldnt be false
+</code></pre>
+
+<p>While most of the time it is desirable to allow the code to dictate the test name, there may be times when you wish to
+have more control. Because of this, version 0.2.1.0+ provides a way to explicitly state the test name. Here's an example:</p>
+
+<pre><code>expectThat "Some Test Name", -&gt; foo.should equal "bar"
+</code></pre>
+
+<h1>Examples</h1>
+
+<p>The following are examples of ExpectThat in use with Pavlov.js (<a href="https://github.com/mmonteleone/pavlov">https://github.com/mmonteleone/pavlov</a>),
+QUnit (<a href="https://github.com/jquery/qunit">https://github.com/jquery/qunit</a>), and Jasmine (<a href="https://github.com/pivotal/jasmine/">https://github.com/pivotal/jasmine/</a>) as well as Mocha (<a href="http://visionmedia.github.com/mocha/">http://visionmedia.github.com/mocha/</a>) respectively.
+Note: More extensive examples can be found in the example folder ( <a href="https://github.com/dmohl/expectThat/tree/master/example">https://github.com/dmohl/expectThat/tree/master/example</a> ).</p>
+
+<p><strong>Pavlov:</strong></p>
+
+<pre><code>pavlov.specify "expectThat Specifications", -&gt;
+    describe "When testing should equal", -&gt;
+        foo = undefined
+        before -&gt;
+            foo = "bar"
+        after -&gt;
+            foo = "baz"
+        expectThat -&gt; foo.should equal "bar"
+        expectThat -&gt; foo.shouldnt equal "baz"
+        expectThat -&gt; (foo + "test").shouldnt equal "bartest2"
+        expectThat -&gt; foo.should be equal to "bar"
+        expectThat -&gt; foo.shouldnt be equal to "bah"
+</code></pre>
+
+<p><strong>QUnit:</strong></p>
+
+<pre><code>module "When testing should equal"
+
+foo = "bar"
+
+expectThat -&gt; foo.should equal "bar"
+expectThat -&gt; foo.shouldnt equal "baz"
+expectThat -&gt; (foo + "test").shouldnt equal "bartest2"
+expectThat -&gt; foo.should be equal to "bar"
+expectThat -&gt; foo.shouldnt be equal to "bah"
+</code></pre>
+
+<p><strong>Jasmine and Mocha (BDD):</strong></p>
+
+<pre><code>describe "Example Specifications", -&gt;
+    foo = "bar"
+    describe "When testing should equal", -&gt;
+        expectThat -&gt; foo.should equal "bar"
+    describe "When testing shouldnt equal", -&gt;
+        expectThat -&gt; foo.shouldnt equal "baz"
+    describe "When testing for true", -&gt;
+        expectThat -&gt; (foo is "bar").should be true
+        expectThat -&gt; (foo is "baz").shouldnt be true
+    describe "When testing for false", -&gt;
+        expectThat -&gt; (foo is "baz").should be false
+        expectThat -&gt; (foo is "bar").shouldnt be false
+</code></pre>
+
+<p>ExpectThat also supports custom matchers. Any matcher that evaluates to true/false can be created. Here's an example of
+a custom matcher for Pavlov. Examples for QUnit and Jasmine are available in the example folder of this project - <a href="https://github.com/dmohl/expectThat/tree/master/example">https://github.com/dmohl/expectThat/tree/master/example</a> ):</p>
+
+<pre><code>((expectThat) -&gt;
+    myCustomMatchers =
+        atleastTwoGreaterThan: (expected) -&gt;
+            "assertionType": "atleastTwoGreaterThan"
+            "expected": expected
+            "expr": (actual, expected) -&gt; actual &gt;= expected + 2
+
+    expectThat.util.extend pavlov.api, myCustomMatchers
+) expectThat
+</code></pre>
+
+<h1>Using ExpectThat with JavaScript</h1>
+
+<p>While the syntax of ExpectThat is especially well suited and specifically designed for CoffeeScript, it can also be used
+in JavaScript. Here's a Pavlov example:</p>
+
+<pre><code>pavlov.specify("expectThat Specifications", function() {
+    describe("When testing should equal", function() {
+        var foo = "bar";
+        expectThat(function() {
+            foo.should(equal("bar"));
+        });
+        expectThat(function() {
+            (foo + "test").should(equal("bartest"));
+        });
+    });
+});
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Expectthat maintained by <a href="https://github.com/dmohl">dmohl</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
