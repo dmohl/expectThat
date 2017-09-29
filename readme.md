@@ -128,7 +128,7 @@ Examples
 =======
 
 The following are examples of ExpectThat in use with Pavlov.js (https://github.com/mmonteleone/pavlov),
-QUnit (https://github.com/jquery/qunit), and Jasmine (https://github.com/pivotal/jasmine/) as well as Mocha (http://visionmedia.github.com/mocha/) respectively.
+QUnit (https://github.com/jquery/qunit), and Jasmine (https://github.com/pivotal/jasmine/) as well as Mocha (http://mochajs.org/) respectively.
 Note: More extensive examples can be found in the example folder ( https://github.com/dmohl/expectThat/tree/master/example ).
 
 **Pavlov:**
